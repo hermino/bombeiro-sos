@@ -3,7 +3,7 @@
 ### Comandos Git
 
 ##### Comando Para Clonar
-- git clone --single-brach --branch <nome-do-branch> https://github.com/hermino/bombeiro-sos.git
+- git clone --single-branch --branch <nome-do-branch> https://github.com/hermino/bombeiro-sos.git
 - git status (para visualizar em qual branch está), se estiver na master, prosseguir com os comandos.
 - git checkout -b <nome-do-branch>
 - git status (para visualizar em qual branch está)
