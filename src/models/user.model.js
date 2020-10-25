@@ -6,6 +6,19 @@ const UserSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    last_name:{
+        type: String,
+        require: true
+    },
+    patent:{
+        type: Number,
+        require: true
+    },
+    register_number:{
+        type: Number,
+        unique: true,
+        require: true
+    },
     email:{
         type: String,
         unique: true,
@@ -17,6 +30,10 @@ const UserSchema = new mongoose.Schema({
         required: true,
         select: false
     },
+    administrator:{
+        type: Number,
+        require: true
+    },
     createdAt:{
         type: Date,
         default: Date.now
@@ -26,7 +43,7 @@ const UserSchema = new mongoose.Schema({
 UserSchema.pre('save', async function(next) {
     const hash = await bcrypt.hash(this.password, 10)
     this.password = hash
-
+    this.administrator = 0
     next()
 })
 
