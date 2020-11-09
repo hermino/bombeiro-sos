@@ -1,0 +1,20 @@
+Didier: 04/11/2020
+* yarn add nodemon
+* configuração da arquivo package.json
+* yarn cors
+
+
+
+
+Didier: 07/11/2020
+* Instalar dotenv
+* yarn add dotenv
+* yarn add jsonwebtoken
+
+Didier: 09/11/2020
+configurar o ambiente de desenvolvimento para esconder os dados de connexão no Banco de dados
+Padronizar o ambiente de desenvolvimento com Eslint Prettier editorconfig
+connexão com o Banco de dado na nuvens.
+Authentificação com geração de Tokens.
+
+
