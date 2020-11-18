@@ -1,18 +1,58 @@
-import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React from 'react';
+import { Image } from 'react-native';
+import{NavigationContainer} from '@react-navigation/native';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
-export default function MainMenu(){
-    return(
-        <View style={styles.MainView}>
-            <Text>Menu</Text>
-        </View>
-    )
+import Home from '/Home';
+import Sobre from '/Sobre';
+
+const Drawer = createDrawerNavigator();
+
+
+export default function  MainMenu(){
+  return(
+    <NavigationContainer>
+
+      <Drawer.Navigator
+      drawerStyle = {{backgroundColor: '#1E2D3E', width: 240}}
+      drawerContentOptions={{ ctiveTintColor: 'white', inactiveTintColor: 'white', 
+    }}
+      > 
+
+        <Drawer.Screen 
+        name = "Página Inicial" component = {Home}
+        options={{
+                    
+          headerStyle:{backgroundColor: '#DD492A', }, 
+          headerTintColor: '#FFFFFF',
+          
+          headerRight: () => (
+            <Image
+            style={{ width: 50, height: 50, right: 15}}
+            source={require('./assets/brasao.png')}
+            />            
+          ), 
+          
+        }}          
+        
+        />        
+        <Drawer.Screen name = "Sobre" component = {Sobre}
+         options={{
+                    
+          headerStyle:{backgroundColor: '#DD492A', }, 
+          headerTintColor: '#FFFFFF',
+          
+          headerRight: () => (
+            <Image
+            style={{ width: 50, height: 50, right: 15}}
+            source={require('./assets/brasao.png')}
+            />            
+          ), 
+          
+        }}    
+
+        />     
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
 }
-
-const styles = StyleSheet.create({
-    MainView:{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent:'center'
-    }
-})
