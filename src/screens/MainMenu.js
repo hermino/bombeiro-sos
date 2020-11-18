@@ -1,18 +1,15 @@
 import React from 'react';
 import { Image } from 'react-native';
-import{NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import{ NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import Home from '/Home';
-import Sobre from '/Sobre';
+import Home from './Home';
+import Sobre from './Sobre';
 
 const Drawer = createDrawerNavigator();
 
-
-export default function  MainMenu(){
+export default function  MainMenu({navigation}){
   return(
-    <NavigationContainer>
-
       <Drawer.Navigator
       drawerStyle = {{backgroundColor: '#1E2D3E', width: 240}}
       drawerContentOptions={{ ctiveTintColor: 'white', inactiveTintColor: 'white', 
@@ -29,7 +26,7 @@ export default function  MainMenu(){
           headerRight: () => (
             <Image
             style={{ width: 50, height: 50, right: 15}}
-            source={require('./assets/brasao.png')}
+            source={require('../assets/brasao.png')}
             />            
           ), 
           
@@ -45,7 +42,7 @@ export default function  MainMenu(){
           headerRight: () => (
             <Image
             style={{ width: 50, height: 50, right: 15}}
-            source={require('./assets/brasao.png')}
+            source={ require('../assets/brasao.png') }
             />            
           ), 
           
@@ -53,6 +50,5 @@ export default function  MainMenu(){
 
         />     
       </Drawer.Navigator>
-    </NavigationContainer>
   );
 }

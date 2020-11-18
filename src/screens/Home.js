@@ -30,7 +30,7 @@ export default function Sobre(){
       <TouchableOpacity style={styles.buttonGPlusStyle}>
       
         <Image style ={styles.image} style ={{width: '77%', resizeMode: 'contain'}}
-        source = {require('./assets/iconeNovo.png')}
+        source = {require('../assets/iconeNovo.png')}
         ></Image>
         <Text style ={{fontSize: 17, right: 10}}>Nova Vistoria </Text>
       </TouchableOpacity>
@@ -38,7 +38,7 @@ export default function Sobre(){
       <TouchableOpacity style={styles.buttonGPlusStyle}>
         
         <Image style ={styles.image} style ={{width: '70%', resizeMode: 'contain'}}
-        source = {require('./assets/iconeBuscar.png')}
+        source = {require('../assets/iconeBuscar.png')}
         ></Image>
         <Text style ={{fontSize: 17, right: 10}}>Buscar Vistoria </Text>      
       </TouchableOpacity>
