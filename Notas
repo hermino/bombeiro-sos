@@ -3,9 +3,6 @@ Didier: 04/11/2020
 * configuração da arquivo package.json
 * yarn cors
 
-
-
-
 Didier: 07/11/2020
 * Instalar dotenv
 * yarn add dotenv
@@ -17,4 +14,13 @@ Padronizar o ambiente de desenvolvimento com Eslint Prettier editorconfig
 connexão com o Banco de dado na nuvens.
 Authentificação com geração de Tokens.
 
+Didier: 12/11/2020
+yarn add fs path
+* fs: permitte a gente trabalhar com file system de node
+* path : permitte a gente trabalhar com caminho
+Para recuperar a senhas pelo email vamos usar uma ferramenta que se chama mailTrap
+adicionar o pacote de nodemailer depois de criar uma conta no mailTrap
+yarn add nodemailer
+adicionar o template de email
+yarn add nodemailer-express-handlebars
 
