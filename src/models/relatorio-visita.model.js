@@ -1,6 +1,11 @@
 const mongoose = require('../database/index')
 
 const RelatorioVisitaSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    require: true
+  },
   area_edificada: {
     type: String,
     require: true
@@ -164,6 +169,10 @@ const RelatorioVisitaSchema = new mongoose.Schema({
   status: {
     type: Number,
     required: true
+  },
+  proprietario: {
+    type: String,
+    require: true
   },
   createdAt: {
     type: Date,

@@ -8,7 +8,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 require('./controller/auth.controller')(app)
-require('./controller/project.controller')(app)
+require('./controller/user.controller')(app)
+require('./controller/relatorio-visita.controller')(app)
 
 
 
