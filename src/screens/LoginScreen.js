@@ -1,5 +1,5 @@
 import React, {Component, useState } from 'react';
-import {View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import {View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import CheckBox from '@react-native-community/checkbox'
 import Constants from 'expo-constants'
 
@@ -26,7 +26,7 @@ export default function LoginScreen({navigation}) {
 
     return (
             <View style={styles.LoginFields}> 
-
+                
                 <Image 
                     style={styles.topImage}
                     source={require('../assets/bombeiros_img.png')}

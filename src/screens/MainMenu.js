@@ -11,8 +11,8 @@ const Drawer = createDrawerNavigator();
 export default function  MainMenu({navigation}){
   return(
       <Drawer.Navigator
-      drawerStyle = {{backgroundColor: '#1E2D3E', width: 240}}
-      drawerContentOptions={{ ctiveTintColor: 'white', inactiveTintColor: 'white', 
+      drawerStyle = {{backgroundColor: '#1E2D3E', width: '100%'}}
+      drawerContentOptions={{ activeTintColor: 'white', inactiveTintColor: 'white', 
     }}
       > 
 

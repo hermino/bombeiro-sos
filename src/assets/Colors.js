@@ -1,0 +1,6 @@
+export var PrimaryTextColor = "#62656e"
+export var SecondaryTextColor = "#9798a1"
+export var YesColor = "#0ad143"
+export var NoColor = "#f50717"
+export var WarningColor = "#941803"
+export var OptionsOffsetColor = "#ebebeb"
