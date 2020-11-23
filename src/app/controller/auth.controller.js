@@ -4,14 +4,16 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const mailer = require('../../modules/mailer.modules');
 
-const authConfig = require('../../config/auth.config') 
+const dotenv = require('dotenv')
+dotenv.config()
+
 
 const User = require('../models/user.model');
 
 const router = express.Router();
 
 function generateToken(params = {}){
-  return jwt.sign(params,authConfig.secret,{
+  return jwt.sign(params,process.env.AUTH_CONFIG_SECRET,{
     expiresIn: 86400,
   })
 }
@@ -80,7 +82,7 @@ router.post('/forgot_password',async (req,res)=>{
     mailer.sendMail({
       subject: 'Token de recuperação de Acesso',
       to: email,
-      from: 'appbombeiro@gmail.com',
+      from: process.env.AUTH_CONFIG_MAIL_USER,
       html: `
           <html>
           <body>

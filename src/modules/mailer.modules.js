@@ -1,12 +1,16 @@
 const nodemailer = require('nodemailer')
+const dotenv = require('dotenv')
 
-const {host, port, user, pass} = require('../config/mail.config.json')
+dotenv.config()
 
 const transport = nodemailer.createTransport({
-  host,
-  port,
+  host: process.env.AUTH_CONFIG_MAIL_HOST,
+  port: process.env.AUTH_CONFIG_MAIL_PORT,
   secure: false,
-  auth: { user, pass },
+  auth: { 
+    user: process.env.AUTH_CONFIG_MAIL_USER, 
+    pass: process.env.AUTH_CONFIG_MAIL_PASS
+  },
   tls:{
     rejectUnauthorized:false,
   }
