@@ -31,7 +31,7 @@ router.get('/list', async (req,res)=>{
 
     try {
       const user = await User.findById( req.userId );
-      if (user.administrator) {
+      if (user.admin) {
         const Todos_User = await User.find()
         return res.send(userViews.RenderMany(Todos_User))
       }else{

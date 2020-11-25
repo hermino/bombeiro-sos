@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
     select: false,
   },
-  administrator: {
+  admin: {
     type: Boolean,
     default: false,
   },
@@ -51,7 +51,7 @@ const UserSchema = new mongoose.Schema({
 UserSchema.pre('save', async function(next) {
   const hash = await bcrypt.hash(this.password, 10);
   this.password = hash;
-  this.administrator = 0;
+  this.admin = 0;
   next();
 });
 
