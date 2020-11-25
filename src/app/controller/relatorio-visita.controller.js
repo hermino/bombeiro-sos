@@ -1,7 +1,10 @@
 const express = require ('express')
 const authMiddleware = require('../middlewares/auth.middlewares')
 
-const RelatorioVisita = require('../models/relatorio-visita.model');
+const User = require('../models/user.model');
+const RelatorioVisita = require('../models/relatorio-visita.model')
+
+const relatorioViews = require('../views/relatorio-visita.view')
 
 const router = express.Router();
 
@@ -9,11 +12,17 @@ router.use(authMiddleware);
 
 router.get('/', async (req,res)=>{
   try {
-    const relatorioVisitas = await RelatorioVisita.find().populate('user');
+    const user = await User.findById( req.userId );
+    
+    if (user.admin) {
+      const Todos_Relatorios = await RelatorioVisita.find().populate('user');
+      return res.send(relatorioViews.RenderManyAdmin(Todos_Relatorios));
+    }else{
+      const Todos_Relatorios = await RelatorioVisita.find( {user: user._id} ).populate('user');
+      return res.send(relatorioViews.RenderMany(Todos_Relatorios));
+    }
 
-    return res.send({relatorioVisitas});
-
-  } catch{
+  } catch(err){
     return res.status(400).send({error: 'Error loading projects'});
   }
 });
