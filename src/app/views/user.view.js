@@ -20,7 +20,7 @@ dadosForAdmin (data = new User ()) {
     "Numero de Registro": data.register_number,
     Email: data.email,
     Admin: data.admin,
-    Criado:data.createdAt
+    Criado: data.createdAt
   }
   return Data
 },
