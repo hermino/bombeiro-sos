@@ -4,6 +4,8 @@ dotenv.config()
 
 
 module.exports = (req,res,next)=>{
+  
+
   const authHeader = req.headers.authorization
 
   if(!authHeader){
@@ -22,7 +24,8 @@ module.exports = (req,res,next)=>{
     return res.status(401).send({error:'Token mal formado'})
   }
 
-  jwt.verify(token, process.AUTH_CONFIG_SECRET,(err,decoded)=>{
+  jwt.verify(token, process.env.AUTH_CONFIG_SECRET,(err,decoded)=>{
+    console.log(err)
     if (err) return res.status(401).send({error:'Token invalida'})
 
     req.userId = decoded.id ;

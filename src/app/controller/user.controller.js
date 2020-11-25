@@ -4,6 +4,7 @@ const authMiddleware = require('../middlewares/auth.middlewares')
 const User = require('../models/user.model');
 
 const router = express.Router();
+const userViews = require('../views/user.view')
 
 router.use(authMiddleware);
 
@@ -11,24 +12,38 @@ router.get('/', async (req,res)=>{
   try {
     const user = await User.findById( req.userId );
 
-    return res.send({user});
+    return res.send(userViews.dados(user));
 
   } catch(err){
-    console.log(err);
     return res.status(400).send({error: 'Error loading user'});
   }
 });
 
 router.get('/list', async (req,res)=>{
-    try {
-      const user = await User.find();
+    // try {
+    //   const user = await User.find();
   
-      return res.send({user});
+    //   return res.send({user});
+  
+    // } catch(err){
+    //   return res.status(400).send({error: 'Error loading users'});
+    // }
+
+    try {
+      const user = await User.findById( req.userId );
+      if (user.administrator) {
+        const Todos_User = await User.find()
+        return res.send(userViews.RenderMany(Todos_User))
+      }else{
+        return res.status(400).send({error: 'Você não tem a permissão para consultar esses dados'});
+      }
   
     } catch(err){
-      console.log(err);
       return res.status(400).send({error: 'Error loading users'});
     }
+
+
+
   });
 
 router.put('/', async (req,res)=>{
