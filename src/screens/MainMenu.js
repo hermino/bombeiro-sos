@@ -3,15 +3,15 @@ import { Image } from 'react-native';
 import{ NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import Home from './Home';
-import Sobre from './Sobre';
+import Home from '../screens/Home';
+import Sobre from '../screens/Sobre';
 
 const Drawer = createDrawerNavigator();
 
 export default function  MainMenu({navigation}){
   return(
       <Drawer.Navigator
-      drawerStyle = {{backgroundColor: '#1E2D3E', width: '100%'}}
+      drawerStyle = {{backgroundColor: '#1E2D3E', width: '50%'}}
       drawerContentOptions={{ activeTintColor: 'white', inactiveTintColor: 'white', 
     }}
       > 

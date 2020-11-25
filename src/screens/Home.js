@@ -27,7 +27,7 @@ export default function Sobre({navigation}){
   return(
     <View style = {styles.container}>
 
-      <TouchableOpacity onPress={ () => navigation.push('RelatorioDeVistoria_01' )} style={styles.buttonGPlusStyle}>
+      <TouchableOpacity onPress={ () => navigation.navigate('Forms', {screen: 'RelatorioDeVistoria_01'})} style={styles.buttonGPlusStyle}>
       
         <Image style ={styles.image} style ={{width: '77%', resizeMode: 'contain'}}
         source = {require('../assets/iconeNovo.png')}

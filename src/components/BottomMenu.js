@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 // create a component
-const BottomMenu = ({navigation, backwards, forwards}) => {
+const BottomMenu = ({navigation, rootPage, backwards, forwards}) => {
     
     const ImageButton = ({onPress, source}) => (
         <TouchableOpacity 
@@ -19,7 +19,7 @@ const BottomMenu = ({navigation, backwards, forwards}) => {
                 <ImageButton 
                     style = {styles.ImageButton}
                     source = {require('../assets/ArrowBackwards.png')}
-                    onPress={() => {navigation.push(backwards)}} />
+                    onPress={() => {navigation.navigate( rootPage , { screen: backwards } )}} />
 
                 <ImageButton 
                     style = {styles.ImageButton}
@@ -29,7 +29,7 @@ const BottomMenu = ({navigation, backwards, forwards}) => {
                 <ImageButton 
                     
                     source = {require('../assets/ArrowForward.png')}
-                    onPress={() => {navigation.push(forwards)}} />
+                    onPress={() => { navigation.navigate( rootPage , { screen: forwards } )}} />
             </View>
     );
 };

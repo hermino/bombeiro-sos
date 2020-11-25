@@ -25,13 +25,14 @@ export default function LoginScreen({navigation}) {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     return (
+        <ScrollView>
             <View style={styles.LoginFields}> 
                 
                 <Image 
                     style={styles.topImage}
                     source={require('../assets/bombeiros_img.png')}
                 />
-
+                
                 <TextInput 
                     textAlignVertical="top"
                     keyboardType="email-address" 
@@ -64,24 +65,25 @@ export default function LoginScreen({navigation}) {
                     onPress={() => navigation.push('MainMenu')}
                     />
                 <ForgotPasswordButton title="Esqueceu a senha?" />
-
+                
             </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     topImage:{
         width:'100%',
-        resizeMode:"stretch",
-        position:'absolute',
+        height: 100,
         left:0,
-        top: Constants.statusBarHeight
+        top: 0,
+        marginBottom: 100
     },
     LoginFields:{
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-    },
+    }, 
     LoginInputStyle:{
         width: '70%',
         alignItems: 'center',
@@ -90,7 +92,8 @@ const styles = StyleSheet.create({
         borderBottomColor: '#CCCCCC',
         textAlign: 'center',
         padding: 7,
-        margin: 10
+        margin: 10,
+        
     },
     LoginButtonContainer:{
         width:'70%',

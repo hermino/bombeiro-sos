@@ -47,7 +47,7 @@ export default function RelatorioDeVistoria_07({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} backwards = "RelatorioDeVistoria_06" forwards = "RelatorioDeVistoria_08" />
+            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_06" forwards = "RelatorioDeVistoria_08" />
 
         </ScrollView>
     );
@@ -55,9 +55,7 @@ export default function RelatorioDeVistoria_07({navigation}) {
 
 const styles = StyleSheet.create({
     Header: {
-        flex: 1,
-        top: Constants.statusBarHeight,
-        marginBottom: 50
+        flex: 1
     },
     TitlesContainer: {
         flexDirection: 'column',

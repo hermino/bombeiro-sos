@@ -87,7 +87,7 @@ export default function RelatorioDeVistoria_01({navigation}) {
                 op3 = "Atualizar"
             />
 
-            <BottomMenu navigation = {navigation} backwards = "MainMenu" forwards = "RelatorioDeVistoria_02" />
+            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_13" forwards = "RelatorioDeVistoria_02" />
             
 
         </ScrollView>
@@ -97,8 +97,7 @@ export default function RelatorioDeVistoria_01({navigation}) {
 const styles = StyleSheet.create({
     Header: {
         flex: 1,
-        top: Constants.statusBarHeight,
-        marginBottom: 50
+        marginBottom: 0
     },
     TitlesContainer: {
         flexDirection: 'column',

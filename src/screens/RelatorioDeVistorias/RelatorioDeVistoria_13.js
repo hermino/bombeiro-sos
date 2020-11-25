@@ -35,13 +35,19 @@ export default function RelatorioDeVistoria_12({navigation}) {
                     <ProximaPagina text = "" />
                 </View>
             </View>
+            
+            <View style={styles.ContentStyle}>
+            
+                <View style={styles.container}>
+                    <TextInput multiline={true} style={styles.textInputStyle} />
+                </View>
 
-            <View style={styles.container}>
-                <TextInput style={styles.textInputStyle} />
+                <View style={styles.BottomMenuStyle}>
+                    <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_12" forwards = "Confirmacao" />
+                </View>
+
             </View>
-
-            <BottomMenu navigation = {navigation} backwards = "RelatorioDeVistoria_12" forwards = "RelatorioDeVistoria_01" />
-
+            
         </ScrollView>
     );
 };
@@ -49,8 +55,6 @@ export default function RelatorioDeVistoria_12({navigation}) {
 const styles = StyleSheet.create({
     Header: {
         flex: 1,
-        top: Constants.statusBarHeight,
-        marginBottom: 50
     },
     TitlesContainer: {
         flexDirection: 'column',
@@ -67,8 +71,28 @@ const styles = StyleSheet.create({
         borderBottomColor: PrimaryTextColor,
         borderBottomWidth: 1
     },
+    ContentStyle:{
+        flex: 1,
+        justifyContent: 'space-between'
+    },  
+    container:{
+        flex: 1,
+        top: 20,
+        alignSelf: 'center',
+        width: "90%"
+    },
     textInputStyle:{
-
+        backgroundColor: "#fff",
+        paddingHorizontal: 10,
+        paddingVertical: 10,
+        height: 300,
+        borderWidth: 0.5,
+        textAlignVertical: 'top',
+        
+    },
+    BottomMenuStyle:{
+        flex:1,
+        justifyContent: 'flex-end'
     }
 
 });
