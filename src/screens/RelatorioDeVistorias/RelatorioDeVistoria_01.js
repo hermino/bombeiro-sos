@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image 
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
 import Constants from 'expo-constants'
-import { PrimaryTextColor, SecondaryTextColor, WarningColor, YesColor } from '../../assets/Colors';
+import { OptionsOffsetColor, PrimaryTextColor, SecondaryTextColor, WarningColor, YesColor } from '../../assets/Colors';
 import ProgressCircle from 'react-native-progress-circle'
 
 import Titulo from '../../components/Titulo'
@@ -22,21 +22,23 @@ export default function RelatorioDeVistoria_01({navigation}) {
 
 
     return (
-        <ScrollView style={styles.Header}>
-            <Titulo title = "Informações Técnicas" />
-            <View style={styles.HeaderRowContainer}>
-                <ProgressCircle  
-                    percent={8}
-                    radius={25}
-                    borderWidth={4}
-                    color= {YesColor}
-                    shadowColor= {SecondaryTextColor}
-                    bgColor="#fff">
-                    <Text>{'1/13'}</Text>
-                </ProgressCircle>
-                <View style={styles.TitlesContainer}>
-                    <Subtitulo text= ''/>
-                    <ProximaPagina text = "Próx: Saída de Emergência" />
+        <ScrollView style={styles.Page}>
+            <View style={styles.Header}>
+                <Titulo title = "Informações Técnicas" />
+                <View style={styles.HeaderRowContainer}>
+                    <ProgressCircle  
+                        percent={8}
+                        radius={25}
+                        borderWidth={4}
+                        color= {YesColor}
+                        shadowColor= {SecondaryTextColor}
+                        bgColor="#fff">
+                        <Text>{'1/13'}</Text>
+                    </ProgressCircle>
+                    <View style={styles.TitlesContainer}>
+                        <Subtitulo text= ''/>
+                        <ProximaPagina text = "Próx: Saída de Emergência" />
+                    </View>
                 </View>
             </View>
 
@@ -95,9 +97,12 @@ export default function RelatorioDeVistoria_01({navigation}) {
 };
 
 const styles = StyleSheet.create({
-    Header: {
+    Page:{
         flex: 1,
-        marginBottom: 0
+        backgroundColor: '#fff',
+    },
+    Header: {
+        backgroundColor: OptionsOffsetColor
     },
     TitlesContainer: {
         flexDirection: 'column',

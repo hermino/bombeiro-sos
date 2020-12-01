@@ -16,21 +16,23 @@ import OptionsRow from '../../components/OptionsRow'
 export default function RelatorioDeVistoria_04({navigation}) {
     
     return (
-        <ScrollView style={styles.Header}>
-            <Titulo title = "Medidas de segurança contra Incêncio e Emergência" />
-            <View style={styles.HeaderRowContainer}>
-                <ProgressCircle  
-                    percent={32}
-                    radius={25}
-                    borderWidth={4}
-                    color= {YesColor}
-                    shadowColor= {SecondaryTextColor}
-                    bgColor="#fff">
-                    <Text>{'4/13'}</Text>
-                </ProgressCircle>
-                <View style={styles.TitlesContainer}>
-                    <Subtitulo text= 'Sinalização de Emergência'/>
-                    <ProximaPagina text = "Próx: Sistema de Hidrantes" />
+        <ScrollView style={styles.Page}>
+            <View style={styles.Header}>
+                <Titulo title = "Medidas de segurança contra Incêncio e Emergência" />
+                <View style={styles.HeaderRowContainer}>
+                    <ProgressCircle  
+                        percent={32}
+                        radius={25}
+                        borderWidth={4}
+                        color= {YesColor}
+                        shadowColor= {SecondaryTextColor}
+                        bgColor="#fff">
+                        <Text>{'4/13'}</Text>
+                    </ProgressCircle>
+                    <View style={styles.TitlesContainer}>
+                        <Subtitulo text= 'Sinalização de Emergência'/>
+                        <ProximaPagina text = "Próx: Sistema de Hidrantes" />
+                    </View>
                 </View>
             </View>
 
@@ -57,8 +59,12 @@ export default function RelatorioDeVistoria_04({navigation}) {
 };
 
 const styles = StyleSheet.create({
+    Page:{
+        flex: 1,
+        backgroundColor: '#fff',
+    },
     Header: {
-        flex: 1
+        backgroundColor: OptionsOffsetColor
     },
     TitlesContainer: {
         flexDirection: 'column',

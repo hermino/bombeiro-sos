@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
     ConfirmacaoScreen: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#fff'
     },  
     PreVisView:{
         marginBottom: 20

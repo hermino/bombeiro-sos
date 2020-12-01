@@ -16,21 +16,23 @@ import OptionsRow from '../../components/OptionsRow'
 export default function RelatorioDeVistoria_02({navigation}) {
     
     return (
-        <ScrollView style={styles.Header}>
-            <Titulo title = "Medidas de segurança contra Incêncio e Emergência" />
-            <View style={styles.HeaderRowContainer}>
-                <ProgressCircle  
-                    percent={16}
-                    radius={25}
-                    borderWidth={4}
-                    color= {YesColor}
-                    shadowColor= {SecondaryTextColor}
-                    bgColor="#fff">
-                    <Text>{'2/13'}</Text>
-                </ProgressCircle>
-                <View style={styles.TitlesContainer}>
-                    <Subtitulo text= 'Saída de Emergência'/>
-                    <ProximaPagina text = "Próx: Iluminação de Emergência" />
+        <ScrollView style={styles.Page}>
+            <View style={styles.Header}>
+                <Titulo title = "Medidas de segurança contra Incêncio e Emergência" />
+                <View style={styles.HeaderRowContainer}>
+                    <ProgressCircle  
+                        percent={16}
+                        radius={25}
+                        borderWidth={4}
+                        color= {YesColor}
+                        shadowColor= {SecondaryTextColor}
+                        bgColor="#fff">
+                        <Text>{'2/13'}</Text>
+                    </ProgressCircle>
+                    <View style={styles.TitlesContainer}>
+                        <Subtitulo text= 'Saída de Emergência'/>
+                        <ProximaPagina text = "Próx: Iluminação de Emergência" />
+                    </View>
                 </View>
             </View>
 
@@ -62,8 +64,12 @@ export default function RelatorioDeVistoria_02({navigation}) {
 };
 
 const styles = StyleSheet.create({
-    Header: {
+    
+    Page:{
         flex: 1,
+        backgroundColor: '#fff',
+    },
+    Header: {
         backgroundColor: OptionsOffsetColor
     },
     TitlesContainer: {

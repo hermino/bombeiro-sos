@@ -14,7 +14,8 @@ const ProximaPagina = ({text}) => {
 const styles = StyleSheet.create({
     ProximaPagina: {
         fontSize: 15,
-        color: SecondaryTextColor
+        color: SecondaryTextColor,
+        textAlign: 'center'
     }
 });
 

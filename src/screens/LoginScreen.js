@@ -25,7 +25,7 @@ export default function LoginScreen({navigation}) {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     return (
-        <ScrollView>
+        <ScrollView style={styles.Page}>
             <View style={styles.LoginFields}> 
                 
                 <Image 
@@ -72,6 +72,9 @@ export default function LoginScreen({navigation}) {
 }
 
 const styles = StyleSheet.create({
+    Page:{
+        backgroundColor: '#fff'
+    },  
     topImage:{
         width:'100%',
         height: 100,

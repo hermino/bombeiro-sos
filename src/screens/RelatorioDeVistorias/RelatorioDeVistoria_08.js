@@ -17,6 +17,7 @@ export default function RelatorioDeVistoria_08({navigation}) {
     
     return (
         <ScrollView style={styles.Header}>
+            <View style={styles.Header}>
             <Titulo title = "Medidas de segurança contra Incêncio e Emergência" />
             <View style={styles.HeaderRowContainer}>
                 <ProgressCircle  
@@ -32,6 +33,7 @@ export default function RelatorioDeVistoria_08({navigation}) {
                     <Subtitulo text= 'Detectores Pontuais de Fumaça'/>
                     <ProximaPagina text = "Próx: Detectores de Temperatura" />
                 </View>
+            </View>
             </View>
 
             <View style={styles.container}>
@@ -52,8 +54,12 @@ export default function RelatorioDeVistoria_08({navigation}) {
 };
 
 const styles = StyleSheet.create({
+    Page:{
+        flex: 1,
+        backgroundColor: '#fff',
+    },
     Header: {
-        flex: 1
+        backgroundColor: OptionsOffsetColor
     },
     TitlesContainer: {
         flexDirection: 'column',

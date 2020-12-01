@@ -16,21 +16,23 @@ import OptionsRow from '../../components/OptionsRow'
 export default function RelatorioDeVistoria_11({navigation}) {
     
     return (
-        <ScrollView style={styles.Header}>
-            <Titulo title = "Medidas de segurança contra Incêncio e Emergência" />
-            <View style={styles.HeaderRowContainer}>
-                <ProgressCircle  
-                    percent={88}
-                    radius={25}
-                    borderWidth={4}
-                    color= {YesColor}
-                    shadowColor= {SecondaryTextColor}
-                    bgColor="#fff">
-                    <Text>{'11/13'}</Text>
-                </ProgressCircle>
-                <View style={styles.TitlesContainer}>
-                    <Subtitulo text= 'Brigada de Incêndio'/>
-                    <ProximaPagina text = "Próx: Armazenamento e Comercialização de GLP" />
+        <ScrollView style={styles.Page}>
+            <View style={styles.Header}>
+                <Titulo title = "Medidas de segurança contra Incêncio e Emergência" />
+                <View style={styles.HeaderRowContainer}>
+                    <ProgressCircle  
+                        percent={88}
+                        radius={25}
+                        borderWidth={4}
+                        color= {YesColor}
+                        shadowColor= {SecondaryTextColor}
+                        bgColor="#fff">
+                        <Text>{'11/13'}</Text>
+                    </ProgressCircle>
+                    <View style={styles.TitlesContainer}>
+                        <Subtitulo text= 'Brigada de Incêndio'/>
+                        <ProximaPagina text = "Próx: Armazenamento e Comercialização de GLP" />
+                    </View>
                 </View>
             </View>
 
@@ -56,8 +58,12 @@ export default function RelatorioDeVistoria_11({navigation}) {
 };
 
 const styles = StyleSheet.create({
+    Page:{
+        flex: 1,
+        backgroundColor: '#fff',
+    },
     Header: {
-        flex: 1
+        backgroundColor: OptionsOffsetColor
     },
     TitlesContainer: {
         flexDirection: 'column',

@@ -24,7 +24,7 @@ const BottomMenu = ({navigation, rootPage, backwards, forwards}) => {
                 <ImageButton 
                     style = {styles.ImageButton}
                     source = {require('../assets/Question.png')}
-                    onPress={() => {navigation.push('RelatorioDeVistoria_02')}} />
+                    onPress={() => {navigation.push('indexPages')}} />
                 
                 <ImageButton 
                     

@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
       paddingTop: 30,
       left: 5,
+      backgroundColor: '#fff'
   
   },
   buttonGPlusStyle: {

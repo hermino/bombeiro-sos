@@ -16,7 +16,8 @@ import OptionsRow from '../../components/OptionsRow'
 export default function RelatorioDeVistoria_05({navigation}) {
     
     return (
-        <ScrollView style={styles.Header}>
+        <ScrollView style={styles.Page}>
+            <View style={styles.Header}>
             <Titulo title = "Medidas de segurança contra Incêncio e Emergência" />
             <View style={styles.HeaderRowContainer}>
                 <ProgressCircle  
@@ -32,6 +33,7 @@ export default function RelatorioDeVistoria_05({navigation}) {
                     <Subtitulo text= 'Sistema de Hidrantes'/>
                     <ProximaPagina text = "Próx: Extintores" />
                 </View>
+            </View>
             </View>
 
             <View style={styles.container}>
@@ -67,8 +69,12 @@ export default function RelatorioDeVistoria_05({navigation}) {
 };
 
 const styles = StyleSheet.create({
+    Page:{
+        flex: 1,
+        backgroundColor: '#fff',
+    },
     Header: {
-        flex: 1
+        backgroundColor: OptionsOffsetColor
     },
     TitlesContainer: {
         flexDirection: 'column',
