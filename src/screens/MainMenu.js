@@ -1,54 +1,49 @@
 import React from 'react';
-import { Image } from 'react-native';
-import{ NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 
-import Home from '../screens/Home';
-import Sobre from '../screens/Sobre';
-
-const Drawer = createDrawerNavigator();
-
-export default function  MainMenu({navigation}){
+export default function Sobre({navigation}){
   return(
-      <Drawer.Navigator
-      drawerStyle = {{backgroundColor: '#1E2D3E', width: '50%'}}
-      drawerContentOptions={{ activeTintColor: 'white', inactiveTintColor: 'white', 
-    }}
-      > 
+    <View style = {styles.container}>
 
-        <Drawer.Screen 
-        name = "Página Inicial" component = {Home}
-        options={{
-                    
-          headerStyle:{backgroundColor: '#DD492A', }, 
-          headerTintColor: '#FFFFFF',
-          
-          headerRight: () => (
-            <Image
-            style={{ width: 50, height: 50, right: 15}}
-            source={require('../assets/brasao.png')}
-            />            
-          ), 
-          
-        }}          
+      <TouchableOpacity onPress={ () => navigation.navigate('Forms', {screen: 'RelatorioDeVistoria_01'})} style={styles.buttonGPlusStyle}>
+        <Image style ={styles.image} style ={{width: '77%', resizeMode: 'contain'}}
+        source = {require('../assets/iconeNovo.png')}
         
-        />        
-        <Drawer.Screen name = "Sobre" component = {Sobre}
-         options={{
-                    
-          headerStyle:{backgroundColor: '#DD492A', }, 
-          headerTintColor: '#FFFFFF',
-          
-          headerRight: () => (
-            <Image
-            style={{ width: 50, height: 50, right: 15}}
-            source={ require('../assets/brasao.png') }
-            />            
-          ), 
-          
-        }}    
+        ></Image>
+        <Text style ={{fontSize: 17, right: 10}}>Nova Vistoria </Text>
+      </TouchableOpacity>
 
-        />     
-      </Drawer.Navigator>
+      <TouchableOpacity onPress={()=> navigation.navigate('BuscarData')}  style={styles.buttonGPlusStyle}>        
+        <Image style ={styles.image} style ={{width: '70%', resizeMode: 'contain'}}
+        source = {require('../assets/iconeBuscar.png')}
+        ></Image>
+        <Text style ={{fontSize: 17, right: 10}}>Buscar Vistoria </Text>      
+      </TouchableOpacity>
+
+    </View>
   );
 }
+
+
+const styles = StyleSheet.create({
+
+  container:{
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: 'space-around',
+      paddingTop: 30,
+      left: 5,
+      backgroundColor: '#fff'
+  
+  },
+  buttonGPlusStyle: {
+
+      paddingVertical: 10,
+      paddingHorizontal: 10,
+      resizeMode: 'contain', 
+  },
+  image:{        
+      resizeMode: 'contain',      
+  },
+  
+})

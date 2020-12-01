@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image, Alert } from 'react-native';
 import { ButtonRed, PrimaryTextColor, SecondaryTextColor, WarningColor, MaisDetalhesColor } from '../../assets/Colors';
-import Constants from 'expo-constants'
 import CheckBox from '@react-native-community/checkbox'
 
 export default function Confirmacao(){

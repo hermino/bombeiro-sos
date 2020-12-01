@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
-import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
-import Constants from 'expo-constants'
 import { OptionsOffsetColor, PrimaryTextColor, SecondaryTextColor, WarningColor, YesColor } from '../../assets/Colors';
 import ProgressCircle from 'react-native-progress-circle'
 

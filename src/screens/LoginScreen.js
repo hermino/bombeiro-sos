@@ -1,7 +1,7 @@
 import React, {Component, useState } from 'react';
 import {View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import CheckBox from '@react-native-community/checkbox'
-import Constants from 'expo-constants'
+//import Constants from 'expo-constants'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';

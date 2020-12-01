@@ -1,7 +1,6 @@
 import React, { lazy } from 'react';
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Constants from 'expo-constants'
 
 import RelatorioDeVistoria_01 from '../screens/RelatorioDeVistorias/RelatorioDeVistoria_01'
 import RelatorioDeVistoria_02 from '../screens/RelatorioDeVistorias/RelatorioDeVistoria_02'
