@@ -7,20 +7,18 @@ import MenuStack from './src/navigations/StackNavigators'
 
 const Drawer = createDrawerNavigator();
 
-function Root() {
-  return (
-        <MenuStack/>
-
-  );
-}
-
 export default function App(){
+  const Root =()=> (
+  
+    <MenuStack/>
+)
+  
   return (
     <NavigationContainer>
       <Drawer.Navigator
         initialRouteName="Root"
         drawerStyle = {{backgroundColor: '#1E2D3E', width: 240}}
-        drawerContentOptions={{ ctiveTintColor: 'white', inactiveTintColor: 'white', 
+        drawerContentOptions={{ activeTintColor: 'white', inactiveTintColor: 'white', 
        }}
       >
         <Drawer.Screen name="Root" component={Root}
