@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 
 const Stack = createStackNavigator();
@@ -18,8 +18,16 @@ export default function MenuStack () {
     return (
         <Stack.Navigator
             initialRouteName="Login"
-            screenOptions={{headerShown:false, headerTintColor:BombeirosColor}}>
-            <Stack.Screen name="Login" component={LoginScreen}  />
+            screenOptions={{headerTintColor:'#FFFFFF',
+            headerStyle: {backgroundColor: '#DD492A'},
+            
+            headerRight: () => <Image  
+            style={{ width: 50, height: 50, right: 15}} 
+            source={require('../assets/brasao.png')} />
+            }}
+
+            >            
+            <Stack.Screen name="Login" component={LoginScreen}  options={{headerShown:false}} />
             <Stack.Screen name="MainMenu" component={MainMenu} options={{title: 'Menu'}} />
             <Stack.Screen name="Forms" component = {TabForms} options={{title: 'Formulário'}} />
             <Stack.Screen name="indexPages" component = {indexPages} options={{title: 'Index'}} /> 
