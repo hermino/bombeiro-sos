@@ -55,7 +55,7 @@ const OptionsRow = ({title, color}) => {
                 </View> 
               ]} 
             flexArr={[4,1,1]} 
-            style={{height: 60, backgroundColor: color}} 
+            style={{height: 60, backgroundColor: color, borderWidth: 0}} 
             textStyle ={styles.text}/>
     )
 

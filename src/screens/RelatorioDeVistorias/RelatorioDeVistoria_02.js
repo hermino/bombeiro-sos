@@ -37,7 +37,7 @@ export default function RelatorioDeVistoria_02({navigation}) {
 
             <View style={styles.container}>
                 <Table borderStyle={{borderWidth: 0}} >
-                    <Row data = {['Não Consta', 'imagem']} flexArr={[2,1]} style={{height: 40}} textStyle={styles.textTitle} />
+                    <Row data = {['Não Consta', 'imagem']} flexArr={[2,1]} style={{height: 40, borderWidth:0}} textStyle={styles.textTitle} />
                     <Row data = {['Medidas', 'SIM', 'NÃO']} flexArr={[4,1,1]} style={{height: 40}} textStyle={styles.textTitle} />
 
                     <OptionsRow title = 'Largura das portas (saídas)' color = {OptionsOffsetColor} />
