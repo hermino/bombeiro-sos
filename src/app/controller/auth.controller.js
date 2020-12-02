@@ -52,6 +52,10 @@ router.post('/authenticate',async (req,res)=>{
   
   user.password = undefined;
 
+  if(!user.authorized){
+    return res.status(401).send({error:'Você ainda não tem acesso as Informações, Consulta seu Administrador'});
+  }
+
   res.send({
     user,
     token:generateToken({ id: user.id })
