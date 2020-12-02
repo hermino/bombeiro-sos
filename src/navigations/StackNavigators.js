@@ -22,7 +22,7 @@ export default function MenuStack () {
             headerStyle: {backgroundColor: '#DD492A'},
             
             headerRight: () => <Image  
-            style={{ width: 50, height: 50, right: 15}} 
+            style={{ width: 50, height: 50, right: 15, marginBottom: 5}} 
             source={require('../assets/brasao.png')} />
             }}
 

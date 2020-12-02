@@ -5,6 +5,7 @@ import CheckBox from '@react-native-community/checkbox'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Constants } from 'react-native-unimodules';
 
 export default function LoginScreen({navigation}) {
     
@@ -79,8 +80,8 @@ const styles = StyleSheet.create({
         width:'100%',
         height: 100,
         left:0,
-        top: 0,
-        marginBottom: 100
+        top: Constants.statusBarHeight,
+        marginBottom: 150
     },
     LoginFields:{
         flex: 1,

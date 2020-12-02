@@ -5,10 +5,14 @@ import { Table, TableWrapper, Col, Cols, Cell, Row, Rows } from 'react-native-ta
 import CircleCheckBox, {LABEL_POSITION} from 'react-native-circle-checkbox'; 
 import { NoColor, OptionsOffsetColor, PrimaryTextColor, SecondaryTextColor, YesColor } from '../assets/Colors';
 
+import { RadioButton } from 'react-native-paper'
+
 const OptionsRow = ({title, color}) => {
 
   const [YesCheckedValue, setYesToggleCheckBox] = useState(false)
   const [NoCheckedValue, setNoToggleCheckBox] = useState(false)
+
+  const [checked, setChecked] = React.useState('')
 
   const YesButton = () => (
     <View style={styles.CheckButtonView}>
@@ -41,7 +45,15 @@ const OptionsRow = ({title, color}) => {
 
     return (     
         <Row 
-            data = { [ title, YesButton() , NoButton()] } 
+            data = {[ 
+                title, 
+                <View style={styles.CheckButtonView}>
+                  <RadioButton value="yes" status={checked === 'yes' ? 'checked' : 'unchecked'} onPress={() => setChecked('yes')} color={YesColor}  />
+                </View> ,
+                <View style={styles.CheckButtonView}>
+                  <RadioButton value="no" status={checked === 'no' ? 'checked' : 'unchecked'} onPress={() => setChecked('no')} color={NoColor} />
+                </View> 
+              ]} 
             flexArr={[4,1,1]} 
             style={{height: 60, backgroundColor: color}} 
             textStyle ={styles.text}/>
