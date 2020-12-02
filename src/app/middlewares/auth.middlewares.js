@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const User = require('../models/user.model');
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -24,12 +25,20 @@ module.exports = (req,res,next)=>{
     return res.status(401).send({error:'Token mal formado'})
   }
 
-  jwt.verify(token, process.env.AUTH_CONFIG_SECRET,(err,decoded)=>{
+  jwt.verify(token, process.env.AUTH_CONFIG_SECRET,  async (err,decoded)=>{
     console.log(err)
     if (err) return res.status(401).send({error:'Token invalida'})
+    
+    const user = await User.findById(decoded.id);
 
-    req.userId = decoded.id ;
-    return next();
+    if(user.authorized){
+      req.userId = decoded.id ;
+      return next();
+    } else{
+      return res.status(401).send({error:'Você ainda não tem acesso as Informações, Consulta seu Administrador'});
+    }
+
+
   });
 
 
