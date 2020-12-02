@@ -1,5 +1,6 @@
 import React, {Component, useState } from 'react';
 import {View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView} from 'react-native'
+import OptionData from '../../components/OptionData' 
 
 export default function BuscarVistoria({navigation}) {
 
@@ -16,6 +17,7 @@ export default function BuscarVistoria({navigation}) {
         <ScrollView style={styles.Page}>
             <View style={styles.PesquisarFields}>
               <Text style={styles.Titulo}>Pesquisar Por:</Text>
+              <OptionData title1 = "Nome" title2 = "Data" onPress={ () => navigation.push('BuscarNome')}/>
               
               <Text style={styles.Subtitulo}>De</Text>
                 <TextInput 
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
       fontWeight: "bold"
   },
   Subtitulo: {
-    right: 90,
+    right: 100,
     fontSize: 15,
     fontWeight: "bold",
     top: 15,

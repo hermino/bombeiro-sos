@@ -1,5 +1,6 @@
 import React, {Component, useState } from 'react';
 import {View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView} from 'react-native'
+import OptionNome from '../../components/OptionNome'
 
 export default function BuscarVistoriaNome({navigation}) {
     
@@ -15,6 +16,7 @@ export default function BuscarVistoriaNome({navigation}) {
         <ScrollView style={styles.Page}>
             <View style={styles.PesquisarFields}>
               <Text style={styles.Titulo}>Pesquisar Por:</Text>
+              <OptionNome title1 = "Nome" title2 = "Data" onPress={ () => navigation.push('BuscarNome')}/>
               
                 <TextInput 
                     textAlignVertical="top"
