@@ -1,10 +1,6 @@
 import React, {Component, useState } from 'react';
 import {View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import CheckBox from '@react-native-community/checkbox'
-//import Constants from 'expo-constants'
-
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { Constants } from 'react-native-unimodules';
 
 export default function LoginScreen({navigation}) {
@@ -65,7 +61,10 @@ export default function LoginScreen({navigation}) {
                     title="Acessar sem login"
                     onPress={() => navigation.push('MainMenu')}
                     />
-                <ForgotPasswordButton title="Esqueceu a senha?" />
+                <ForgotPasswordButton 
+                title="Esqueceu a senha?"
+                onPress={() => navigation.push('RecuperarSenha')}                
+                />
                 
             </View>
         </ScrollView>

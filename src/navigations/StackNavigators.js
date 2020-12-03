@@ -8,7 +8,7 @@ import LoginScreen from '../screens/LoginScreen'
 import MainMenu from '../screens/MainMenu'
 import indexPages from '../screens/indexPages'
 
-import BuscarNome from '../screens/BuscarVistoria/BuscarVistoriaNome'
+import RecuperarSenha from '../screens/RecuperarSenha'
 import BuscarData from '../screens/BuscarVistoria/BuscarVistoriaData'
 
 import TabForms from './TabNavigators'
@@ -31,7 +31,7 @@ export default function MenuStack () {
             <Stack.Screen name="MainMenu" component={MainMenu} options={{title: 'Menu'}} />
             <Stack.Screen name="Forms" component = {TabForms} options={{title: 'Formulário'}} />
             <Stack.Screen name="indexPages" component = {indexPages} options={{title: 'Index'}} /> 
-            <Stack.Screen name="BuscarNome" component = {BuscarNome} options={{title: 'Buscar Vistoria'}} /> 
+            <Stack.Screen name="RecuperarSenha" component = {RecuperarSenha} options={{title: 'Recuperar Senha'}} /> 
             <Stack.Screen name="BuscarData" component = {BuscarData} options={{title: 'Buscar Vistoria'}} /> 
             
         </Stack.Navigator>    

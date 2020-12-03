@@ -15,20 +15,19 @@ export default function BuscarVistoria({navigation}) {
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.PesquisarFields}>
-              <Text style={styles.Titulo}>Pesquisar Por Data:</Text>
-              <Text style={styles.Subtitulo}>De</Text>
+              <Text style={styles.Subtitulo}>Digite seu Email</Text>
                 <TextInput 
                     textAlignVertical="top"
-                    placeholder="dd/mm/aaaa" 
+                    placeholder="Email" 
                     style={styles.PesquisarInputStyle}/>
                 
-                <Text style={styles.Subtitulo}>Até</Text>                
+                <Text style={styles.Subtitulo}>       Confirme seu Email</Text>                
                 <TextInput 
                     textAlignVertical="top"
-                    placeholder="dd/mm/aaaa" 
+                    placeholder="Email" 
                     style={styles.PesquisarInputStyle}/>
                
-                <PesquisarButton title="Pesquisar"/>  
+                <PesquisarButton title="Confimar"/>  
             </View>
             </ScrollView>
     );
@@ -41,38 +40,33 @@ const styles = StyleSheet.create({
     PesquisarFields:{
         flex: 1,
         alignItems: 'center',
-        top: 0,
+        top: 80,
     },
-    Titulo: {
-      marginTop: 20,
-      right: 50,
-      fontSize: 25,
-      color:  "#1F2D3D",
-      fontWeight: "bold"
-  },
+
   Subtitulo: {
     right: 100,
     fontSize: 15,
     fontWeight: "bold",
-    top: 15,
+    top: 30,
     color: '#1F2D3D',
+    top: 30
 },
     PesquisarInputStyle:{
-        width: '60%',
+        width: '90%',
         borderBottomWidth: 1,
         borderBottomColor: '#CCCCCC',
-        padding: 9,
-        top: 15
+        padding: 8,
+        top: 25
     },
     PesquisarButtonContainer:{
-        width:'40%',
+        width:'70%',
         backgroundColor: "#E50000",
-        borderRadius: 10,
-        paddingVertical: 10,
+        borderRadius: 13,
+        paddingVertical: 13,
         paddingHorizontal: 12,
-        margin: 20,
-        top: 20,
+        margin: 80,
     },
+
     PesquisarButtonText:{
         fontSize: 13,
         color: "#fff",

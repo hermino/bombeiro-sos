@@ -4,6 +4,9 @@ import { NavigationContainer, StackActions } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import MenuStack from './src/navigations/StackNavigators'
+import Sobre from './src/screens/Sobre'
+import Configuracao from './src/screens/Configuracao'
+import Sair from './src/screens/Sair'
 
 const Drawer = createDrawerNavigator();
 
@@ -18,30 +21,18 @@ export default function App(){
     <NavigationContainer>
       <Drawer.Navigator
         initialRouteName="Root"
-        drawerStyle = {{backgroundColor: '#1E2D3E', width: 240,
-        
-        
-      }}
-        drawerContentOptions={{ctiveTintColor: 'white', inactiveTintColor: 'white',  
-      }}
-      screenOptions={{headerShown:false}}
+        drawerStyle = {{backgroundColor: '#1E2D3E', width: 270,}}
+        drawerContentOptions={{ctiveTintColor: 'white', inactiveTintColor: 'white'}}
+        screenOptions={{headerShown:false}}
       >
-        <Drawer.Screen name="Página Inicial" component={Root}
-        // options={{ 
-        //   title: 'Bombeiros de Roraima',                  
-        //   headerStyle:{backgroundColor: '#DD492A', }, 
-        //   headerTintColor: '#FFFFFF',
-          
-        //   headerRight: () => (
-        //     <Image
-        //     style={{ width: 50, height: 50, right: 15}}
-        //     source={require('./src/assets/brasao.png')}
-        //     />            
-        //   ), 
-          
-        // }}          
-        />
+        <Drawer.Screen name="Página Inicial" component={Root}/>        
+        <Drawer.Screen name="Configuracao" component={Configuracao}/>
+        <Drawer.Screen name="Sobre" component={Sobre}/>
+        <Drawer.Screen name="Sair" component={Sair}/>
+  
+      
         </Drawer.Navigator>
+
     </NavigationContainer>
   );
 }
