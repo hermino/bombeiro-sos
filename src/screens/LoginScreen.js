@@ -1,11 +1,18 @@
-import React, {Component, useState } from 'react';
+import React, {Component, useState, useEffect } from 'react';
 import {View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import CheckBox from '@react-native-community/checkbox'
 import { Constants } from 'react-native-unimodules';
 
+import axios from 'axios'
+
 export default function LoginScreen({navigation}) {
     
     TouchableOpacity.defaultProps = { activeOpacity: 0.8 };
+
+    const [login, setLogin] = useState('')
+    const [password, setPassword] = useState('')
+
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     const LoginButton = ({onPress, title}) => (
         <TouchableOpacity onPress={onPress} style={styles.LoginButtonContainer}>
@@ -18,8 +25,20 @@ export default function LoginScreen({navigation}) {
             <Text style={styles.ForgotPasswordText} >{title}</Text>
         </TouchableOpacity>
     )
+
+    const Loggin = async () => (
     
-    const [toggleCheckBox, setToggleCheckBox] = useState(false)
+        await axios.post('http://localhost:3000/auth/authenticate', {
+            'email' : login,
+            'password' : password 
+        }).then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+        
+    )
 
     return (
         <ScrollView style={styles.Page}>
@@ -33,9 +52,12 @@ export default function LoginScreen({navigation}) {
                 <TextInput 
                     textAlignVertical="top"
                     keyboardType="email-address" 
-                    autoCapitalize="none" 
+                    autoCapitalize="none"  
                     placeholder="Login" 
-                    style={styles.LoginInputStyle}/>
+                    style={styles.LoginInputStyle}
+                    defaultValue = {login}
+                    onChangeText={value => setLogin(value)}
+                    />
                 
                 <TextInput 
                     textAlignVertical="top"
@@ -44,7 +66,10 @@ export default function LoginScreen({navigation}) {
                     keyboardType="email-address" 
                     autoCapitalize="none" 
                     placeholder="Senha" 
-                    style={styles.LoginInputStyle}/>
+                    style={styles.LoginInputStyle}
+                    defaultValue = {password}
+                    onChangeText={value => setPassword(value)}
+                    />
 
                 <View style={styles.CheckBoxContainer}>
                     <CheckBox
@@ -56,7 +81,7 @@ export default function LoginScreen({navigation}) {
                     <Text style={ styles.CheckBoxLabel }>Lembrar Registros de Login</Text>
                 </View>
 
-                <LoginButton title="Entrar" />
+                <LoginButton title="Entrar" onPress={() => Loggin()} />
                 <LoginButton 
                     title="Acessar sem login"
                     onPress={() => navigation.push('MainMenu')}
