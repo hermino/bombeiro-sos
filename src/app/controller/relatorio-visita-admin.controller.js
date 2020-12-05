@@ -1,5 +1,5 @@
 const express = require ('express')
-const authMiddleware = require('../middlewares/auth.middlewares')
+const adminMiddleware = require('../middlewares/admin.middlewares')
 
 const User = require('../models/user.model');
 const RelatorioVisita = require('../models/relatorio-visita.model')
@@ -8,13 +8,12 @@ const relatorioViews = require('../views/relatorio-visita.view')
 
 const router = express.Router();
 
-router.use(authMiddleware);
+router.use(adminMiddleware);
 
 router.get('/', async (req,res)=>{
   try {
-    
-    const Todos_Relatorios = await RelatorioVisita.find( {user: req.userId} ).populate('user');
-    return res.send(relatorioViews.RenderMany(Todos_Relatorios));
+    const Todos_Relatorios = await RelatorioVisita.find().populate('user');
+    return res.send(relatorioViews.RenderManyAdmin(Todos_Relatorios));
 
   } catch(err){
     return res.status(400).send({error: 'Error loading projects'});
@@ -24,10 +23,6 @@ router.get('/', async (req,res)=>{
 router.get('/:relatorioId', async (req,res)=>{
   try {
     const relatorioVisitas = await RelatorioVisita.findById(req.params.relatorioId).populate('user');
-
-    if(relatorioVisitas.user._id != req.userId) {
-      return res.status(400).send({error: 'Acesso negado!'});
-    }
 
     return res.send({relatorioVisitas});
 
@@ -49,13 +44,6 @@ router.post('/', async (req,res)=>{
 
 router.put('/:relatorioId', async (req,res)=>{
   try {
-
-    const relatorioVisitasVerifica = await RelatorioVisita.findById(req.params.relatorioId).populate('user');
-
-    if(relatorioVisitasVerifica.user._id != req.userId) {
-      return res.status(400).send({error: 'Acesso negado!'});
-    }
-
     const relatorioVisita = await RelatorioVisita.findByIdAndUpdate(
       req.params.relatorioId,
       { ...req.body},
@@ -71,12 +59,6 @@ router.put('/:relatorioId', async (req,res)=>{
 
 router.delete('/:relatorioId', async (req,res)=>{
   try {
-    const relatorioVisitasVerifica = await RelatorioVisita.findById(req.params.relatorioId).populate('user');
-
-    if(relatorioVisitasVerifica.user._id != req.userId) {
-      return res.status(400).send({error: 'Acesso negado!'});
-    }
-
     await RelatorioVisita.findByIdAndRemove(req.params.relatorioId).populate('user');
 
     return res.send('Relatório removido!');
@@ -274,4 +256,4 @@ router.get("/download", (req, res) => {
   })
 })
 
-module.exports = (app) => app.use('/relatorio-visita', router)
+module.exports = (app) => app.use('/relatorio-visita-admin', router)

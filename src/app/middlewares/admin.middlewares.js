@@ -31,7 +31,7 @@ module.exports = (req,res,next)=>{
     
     const user = await User.findById(decoded.id);
 
-    if(user.authorized){
+    if(user.authorized && user.admin){
       req.userId = decoded.id ;
       return next();
     } else{

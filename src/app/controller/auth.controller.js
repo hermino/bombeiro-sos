@@ -7,7 +7,6 @@ const mailer = require('../../modules/mailer.modules');
 const dotenv = require('dotenv')
 dotenv.config()
 
-
 const User = require('../models/user.model');
 
 const router = express.Router();
@@ -17,25 +16,6 @@ function generateToken(params = {}){
     expiresIn: 86400,
   })
 }
-
-router.post('/register', async (req, res) => {
-  const { email } = req.body;
-  try {
-    if (await User.findOne({ email })) {
-      return res.status(400).send({ error: 'E-mail already exists!' });
-    }
-    const user = await User.create(req.body);
-
-    user.password = undefined;
-
-    return res.send({ 
-      user,
-      token:generateToken({ id:user.id }),
-    });
-  } catch (err) {
-    return res.status(400).send({ error: 'Registration failed.' });
-  }
-});
 
 router.post('/authenticate',async (req,res)=>{
   const {email, password } = req.body;
@@ -53,7 +33,7 @@ router.post('/authenticate',async (req,res)=>{
   user.password = undefined;
 
   if(!user.authorized){
-    return res.status(401).send({error:'Você ainda não tem acesso as Informações, Consulta seu Administrador'});
+    return res.status(401).send({error:'Você ainda não tem acesso ao sistema, consulte seu Administrador'});
   }
 
   res.send({

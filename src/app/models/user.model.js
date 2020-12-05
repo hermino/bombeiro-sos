@@ -32,6 +32,7 @@ const UserSchema = new mongoose.Schema({
   },
   admin: {
     type: Boolean,
+    required: true,
     default: false,
   },
   passwordResetToken:{
@@ -44,6 +45,7 @@ const UserSchema = new mongoose.Schema({
   },
   authorized:{
     type: Boolean,
+    required: true,
     default: false,
   },
   createdAt: {
@@ -55,7 +57,6 @@ const UserSchema = new mongoose.Schema({
 UserSchema.pre('save', async function(next) {
   const hash = await bcrypt.hash(this.password, 10);
   this.password = hash;
-  this.admin = 0;
   next();
 });
 

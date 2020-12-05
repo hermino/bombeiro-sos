@@ -1,6 +1,5 @@
 
 const Relatorio = require('../models/relatorio-visita.model')
-const User = require('../models/user.model')
 
 module.exports = {
   dados(data = new Relatorio()){
