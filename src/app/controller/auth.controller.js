@@ -1,15 +1,15 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
-const mailer = require('../../modules/mailer.modules');
-
+const express = require('express')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+const crypto = require('crypto')
 const dotenv = require('dotenv')
+
+const mailer = require('../../modules/mailer.modules')
+const User = require('../models/user.model')
+
+const router = express.Router()
+
 dotenv.config()
-
-const User = require('../models/user.model');
-
-const router = express.Router();
 
 function generateToken(params = {}){
   return jwt.sign(params,process.env.AUTH_CONFIG_SECRET,{
@@ -17,29 +17,33 @@ function generateToken(params = {}){
   })
 }
 
-router.post('/authenticate',async (req,res)=>{
-  const {email, password } = req.body;
+router.get('/', async (req,res)=>{
+  console.log('teste')
+})
 
-  const user = await User.findOne({email}).select('+password');
+router.post('/authenticate',async (req,res)=>{
+  const {email, password } = req.body
+
+  const user = await User.findOne({email}).select('+password')
 
   if(!user){
     return res.status(400).send({ error: 'Usuário não existe'})
   }
 
   if (!await bcrypt.compare(password,user.password)){
-    return res.status(400).send({ error: 'Senha Invalida'})
+    return res.status(400).send({ error: 'Senha Inválida'})
   }
   
-  user.password = undefined;
+  user.password = undefined
 
   if(!user.authorized){
-    return res.status(401).send({error:'Você ainda não tem acesso ao sistema, consulte seu Administrador'});
+    return res.status(401).send({error:'Você ainda não tem acesso ao sistema, consulte seu Administrador'})
   }
 
   res.send({
     user,
     token:generateToken({ id: user.id })
-  });
+  })
 })
 
 router.post('/forgot_password',async (req,res)=>{
@@ -49,12 +53,12 @@ router.post('/forgot_password',async (req,res)=>{
     const user = await User.findOne({ email})
 
     if (!user){
-      res.status(400).send({error: ' Usuário não encontrado !'})
+      res.status(400).send({error: ' Usuário não encontrado!'})
     }
 
     const token = crypto.randomBytes(20).toString('hex')
     
-    const now = new Date();
+    const now = new Date()
     now.setHours(now.getHours()+1)
     await User.findByIdAndUpdate(user.id,{
       '$set':{
@@ -80,7 +84,7 @@ router.post('/forgot_password',async (req,res)=>{
       if (err){
         return res.status(400).send({ error: 'Cannot send forgot password email'})
       }
-      return res.send();
+      return res.send()
     })
 
   }catch(err){
@@ -97,17 +101,17 @@ router.post('/reset_password',async (req,res)=>{
     .select('+passwordResetToken passwordResetExpire')
 
     if (!user){
-      res.status(400).send({error: ' Usuário não encontrado !'})
+      res.status(400).send({error: 'Usuário não encontrado !'})
     }
 
     if (token !== user.passwordResetToken){
-      res.status(400).send({error: ' Token invalido !'})
+      res.status(400).send({error: 'Token inválido!'})
     }
 
     const now = new Date()
 
     if (now >user.passwordResetExpire){
-      res.status(400).send({error: ' Token expirado, Gera um Novo Token !'})
+      res.status(400).send({error: 'Token expirado, Gerar um Novo Token!'})
     }
 
     user.password = password
@@ -116,11 +120,9 @@ router.post('/reset_password',async (req,res)=>{
 
     res.send()
 
-
-
   }catch (err){
-    res.status(400).send({ error: 'Impossivel de Resetar a Senha, Tenta Novamente !'})
+    res.status(400).send({ error: 'Impossível resetar senha, Tente Novamente!'})
   }
 
 })
-module.exports = (app) => app.use('/auth', router);
+module.exports = (app) => app.use('/auth', router)

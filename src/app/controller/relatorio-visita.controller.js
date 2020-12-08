@@ -1,9 +1,7 @@
 const express = require ('express')
+
 const authMiddleware = require('../middlewares/auth.middlewares')
-
-const User = require('../models/user.model');
 const RelatorioVisita = require('../models/relatorio-visita.model')
-
 const relatorioViews = require('../views/relatorio-visita.view')
 
 const router = express.Router();
@@ -14,12 +12,12 @@ router.get('/', async (req,res)=>{
   try {
     
     const Todos_Relatorios = await RelatorioVisita.find( {user: req.userId} ).populate('user');
-    return res.send(relatorioViews.RenderMany(Todos_Relatorios));
+    return res.send(relatorioViews.renderMany(Todos_Relatorios));
 
   } catch(err){
     return res.status(400).send({error: 'Error loading projects'});
   }
-});
+})
 
 router.get('/:relatorioId', async (req,res)=>{
   try {
@@ -34,7 +32,7 @@ router.get('/:relatorioId', async (req,res)=>{
   } catch{
     return res.status(400).send({error: 'Error loading project'});
   }
-});
+})
 
 router.post('/', async (req,res)=>{
   try {
@@ -45,7 +43,7 @@ router.post('/', async (req,res)=>{
   } catch{
     return res.status(400).send({error: 'Error creating new project'});
   }
-});
+})
 
 router.put('/:relatorioId', async (req,res)=>{
   try {
@@ -67,7 +65,7 @@ router.put('/:relatorioId', async (req,res)=>{
   } catch{
     return res.status(400).send({error: 'Error updating project'});
   }
-});
+})
 
 router.delete('/:relatorioId', async (req,res)=>{
   try {
@@ -84,7 +82,7 @@ router.delete('/:relatorioId', async (req,res)=>{
   } catch{
     return res.status(400).send({error: 'Error deleting project'});
   }
-});
+})
 
 router.get("/download", (req, res) => {
   const document = new PDFDocument({bufferPages: true})

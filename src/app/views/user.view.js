@@ -11,6 +11,7 @@ module.exports =  {
   }
   return Data
 },
+
 dadosForAdmin (data = new User ()) {
   const Data = {
     Nome: data.name,
@@ -24,7 +25,8 @@ dadosForAdmin (data = new User ()) {
   }
   return Data
 },
-RenderMany (users = new User()) {
+
+renderMany (users = new User()) {
     return users.map(todo => this.dadosForAdmin(todo))
   }
 }

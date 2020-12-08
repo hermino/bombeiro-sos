@@ -1,46 +1,44 @@
 const express = require ('express')
+
 const adminMiddleware = require('../middlewares/admin.middlewares')
-
-const User = require('../models/user.model');
 const RelatorioVisita = require('../models/relatorio-visita.model')
-
 const relatorioViews = require('../views/relatorio-visita.view')
 
-const router = express.Router();
+const router = express.Router()
 
-router.use(adminMiddleware);
+router.use(adminMiddleware)
 
 router.get('/', async (req,res)=>{
   try {
-    const Todos_Relatorios = await RelatorioVisita.find().populate('user');
-    return res.send(relatorioViews.RenderManyAdmin(Todos_Relatorios));
+    const todosRelatorios = await RelatorioVisita.find().populate('user')
+    return res.send(relatorioViews.renderManyAdmin(todosRelatorios))
 
   } catch(err){
-    return res.status(400).send({error: 'Error loading projects'});
+    return res.status(400).send({error: 'Falha ao carregar relatórios!'})
   }
-});
+})
 
 router.get('/:relatorioId', async (req,res)=>{
   try {
-    const relatorioVisitas = await RelatorioVisita.findById(req.params.relatorioId).populate('user');
+    const relatorioVisitas = await RelatorioVisita.findById(req.params.relatorioId).populate('user')
 
-    return res.send({relatorioVisitas});
+    return res.send({relatorioVisitas})
 
   } catch{
-    return res.status(400).send({error: 'Error loading project'});
+    return res.status(400).send({error: 'Falha ao carregar relatório!'})
   }
-});
+})
 
 router.post('/', async (req,res)=>{
   try {
-    const relatorioVisita = await RelatorioVisita.create({...req.body, user: req.userId });
+    const relatorioVisita = await RelatorioVisita.create({...req.body, user: req.userId })
 
-    return res.send({relatorioVisita});
+    return res.send({relatorioVisita})
 
   } catch{
-    return res.status(400).send({error: 'Error creating new project'});
+    return res.status(400).send({error: 'Falha ao criar novo relatório!'})
   }
-});
+})
 
 router.put('/:relatorioId', async (req,res)=>{
   try {
@@ -48,25 +46,25 @@ router.put('/:relatorioId', async (req,res)=>{
       req.params.relatorioId,
       { ...req.body},
       {new: true}
-    );
+    )
 
-    return res.send({relatorioVisita});
+    return res.send({relatorioVisita})
 
   } catch{
-    return res.status(400).send({error: 'Error updating project'});
+    return res.status(400).send({error: 'Falha ao atualizar relatório!'})
   }
-});
+})
 
 router.delete('/:relatorioId', async (req,res)=>{
   try {
-    await RelatorioVisita.findByIdAndRemove(req.params.relatorioId).populate('user');
+    await RelatorioVisita.findByIdAndRemove(req.params.relatorioId).populate('user')
 
-    return res.send('Relatório removido!');
+    return res.send('Relatório removido!')
 
   } catch{
-    return res.status(400).send({error: 'Error deleting project'});
+    return res.status(400).send({error: 'Falha ao remover relatório!'})
   }
-});
+})
 
 router.get("/download", (req, res) => {
   const document = new PDFDocument({bufferPages: true})

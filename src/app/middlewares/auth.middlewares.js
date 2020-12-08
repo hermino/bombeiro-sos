@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken')
-const User = require('../models/user.model');
 const dotenv = require('dotenv')
+
+const User = require('../models/user.model')
+
 dotenv.config()
 
-
 module.exports = (req,res,next)=>{
-  
-
   const authHeader = req.headers.authorization
 
   if(!authHeader){
@@ -26,7 +25,6 @@ module.exports = (req,res,next)=>{
   }
 
   jwt.verify(token, process.env.AUTH_CONFIG_SECRET,  async (err,decoded)=>{
-    console.log(err)
     if (err) return res.status(401).send({error:'Token invalida'})
     
     const user = await User.findById(decoded.id);

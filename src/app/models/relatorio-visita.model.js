@@ -1,5 +1,6 @@
-const mongoose = require("../../database");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs")
+
+const mongoose = require("../../database/index")
 
 const RelatorioVisitaSchema = new mongoose.Schema({
   area_edificada: {
@@ -179,11 +180,8 @@ const RelatorioVisitaSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+})
 
-const RelatorioVisita = mongoose.model(
-  "relatorio_visita",
-  RelatorioVisitaSchema
-);
+const RelatorioVisita = mongoose.model("RelatorioVisita", RelatorioVisitaSchema)
 
 module.exports = RelatorioVisita;
