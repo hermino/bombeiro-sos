@@ -5,6 +5,7 @@ import { Constants } from 'react-native-unimodules';
 
 import axios from 'axios'
 
+
 export default function LoginScreen({navigation}) {
     
     TouchableOpacity.defaultProps = { activeOpacity: 0.8 };
@@ -28,6 +29,7 @@ export default function LoginScreen({navigation}) {
 
     const Loggin = async () => (
     
+        
         await axios.post('http://localhost:3000/auth/authenticate', {
             'email' : login,
             'password' : password 
