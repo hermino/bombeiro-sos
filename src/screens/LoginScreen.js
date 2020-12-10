@@ -1,9 +1,10 @@
 import React, {Component, useState, useEffect } from 'react';
-import {View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
+import {View, Text, TextInput, StyleSheet, TouchableOpacity, Image, ScrollView, Alert } from 'react-native'
 import CheckBox from '@react-native-community/checkbox'
 import { Constants } from 'react-native-unimodules';
 
-import axios from 'axios'
+
+import axios from '../services/api'
 
 
 export default function LoginScreen({navigation}) {
@@ -27,17 +28,28 @@ export default function LoginScreen({navigation}) {
         </TouchableOpacity>
     )
 
+    const errorAlert = ((error) =>
+        Alert.alert(
+            "Error",
+            "Tente novamente!",
+            [
+                { text: "OK", onPress: () => console.error(error) }
+            ],
+            { cancelable: false }
+        )
+    )
+
     const Login = async () => (
     
-        await axios.post('http://localhost:3000/auth/authenticate', {
+        await axios.post('/auth/authenticate', {
             'email' : login,
             'password' : password 
         }).then(function acknowledge(response) {
-            console.log(response);
+            console.log(response.data);
             navigation.push('MainMenu')
           })
-          .catch(function (error) {
-            console.log(error);
+          .catch(function acknowledge(error) {
+            errorAlert(error)
           })
         
     )
