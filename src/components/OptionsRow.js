@@ -7,51 +7,20 @@ import { NoColor, OptionsOffsetColor, PrimaryTextColor, SecondaryTextColor, YesC
 
 import { RadioButton } from 'react-native-paper'
 
-const OptionsRow = ({title, color}) => {
+const OptionsRow = ({title, color, parentOption}) => {
 
-  const [YesCheckedValue, setYesToggleCheckBox] = useState(false)
-  const [NoCheckedValue, setNoToggleCheckBox] = useState(false)
 
   const [checked, setChecked] = React.useState('')
-
-  const YesButton = () => (
-    <View style={styles.CheckButtonView}>
-        <CircleCheckBox
-          checked={YesCheckedValue}
-          onToggle={(newValue) => {
-            setYesToggleCheckBox(newValue)
-            setNoToggleCheckBox(!newValue)
-          }}
-          labelPosition={LABEL_POSITION.RIGHT}
-          outerColor = {SecondaryTextColor}
-          innerColor = {YesColor}
-        />
-    </View>
-  )
-
-  const NoButton = () => (
-    <View style={styles.CheckButtonView}>
-        <CircleCheckBox
-          checked={NoCheckedValue}
-          onToggle={(newValue) => {
-            setYesToggleCheckBox(!newValue)
-            setNoToggleCheckBox(newValue)} }
-          labelPosition={LABEL_POSITION.RIGHT}
-          outerColor = {SecondaryTextColor}
-          innerColor = {NoColor}
-        />
-    </View>
-  )
 
     return (     
         <Row 
             data = {[ 
                 title, 
                 <View style={styles.CheckButtonView}>
-                  <RadioButton value="yes" status={checked === 'yes' ? 'checked' : 'unchecked'} onPress={() => setChecked('yes')} color={YesColor}  />
+                  <RadioButton value="yes" status={checked === 'yes' ? 'checked' : 'unchecked'} onPress={() => { setChecked('yes'), parentOption(true) } } color={YesColor}  />
                 </View> ,
                 <View style={styles.CheckButtonView}>
-                  <RadioButton value="no" status={checked === 'no' ? 'checked' : 'unchecked'} onPress={() => setChecked('no')} color={NoColor} />
+                  <RadioButton value="no" status={checked === 'no' ? 'checked' : 'unchecked'} onPress={() => { setChecked('no'), parentOption(false) } } color={NoColor} />
                 </View> 
               ]} 
             flexArr={[4,1,1]} 

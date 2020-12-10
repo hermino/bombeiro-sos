@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
@@ -14,6 +14,17 @@ import OptionsRow from '../../components/OptionsRow'
 
 export default function RelatorioDeVistoria_02({navigation}) {
     
+    const [larguraPorta, ChangeLarguraPorta] = useState(false)
+    const [larguraEscada, ChangeLarguraEscada] = useState(false)
+    const [pisoAntiderrapante, ChangePisoAntiderrapante] = useState(false)
+    const [guardaCorpoAltura, ChangeGuardaCorpoAltura] = useState(false)
+    const [detrancadas, ChangeDestrancadas] = useState(false)
+    const [corrimaoAmbosOsLados, ChangeCorrimaoAmbosOsLados] = useState(false)
+    const [corrimaoMezanino, ChangeCorrimaoMezanino] = useState(false)
+    const [materialEscada, ChangeMaterialEscada] = useState(false)
+    const [barrasAntipanico, ChangeBarrasAntipanico] = useState(false)
+    const [outrosItensObservados1, ChangeOutrosItensObservados1] = useState(false)
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -40,18 +51,18 @@ export default function RelatorioDeVistoria_02({navigation}) {
                     <Row data = {['Não Consta', 'imagem']} flexArr={[2,1]} style={{height: 40, borderWidth:0}} textStyle={styles.textTitle} />
                     <Row data = {['Medidas', 'SIM', 'NÃO']} flexArr={[4,1,1]} style={{height: 40}} textStyle={styles.textTitle} />
 
-                    <OptionsRow title = 'Largura das portas (saídas)' color = {OptionsOffsetColor} />
-                    <OptionsRow title = 'Largura das escadas' />
-                    <OptionsRow title = 'Piso antiderrapante' color = {OptionsOffsetColor} />
-                    <OptionsRow title = 'Guarda corpo altura e longarinas 15 cm de espaçamento' />
+                    <OptionsRow title = 'Largura das portas (saídas)' color = {OptionsOffsetColor} parentOption = {ChangeLarguraPorta}  />
+                    <OptionsRow title = 'Largura das escadas' parentOption = {ChangeLarguraEscada}/>
+                    <OptionsRow title = 'Piso antiderrapante' color = {OptionsOffsetColor} parentOption = {ChangePisoAntiderrapante}/>
+                    <OptionsRow title = 'Guarda corpo altura e longarinas 15 cm de espaçamento' parentOption = {ChangeGuardaCorpoAltura}/>
 
-                    <OptionsRow title = 'Estão desobstruídas destrancadas' color = {OptionsOffsetColor} />
-                    <OptionsRow title = 'Corrimão em ambos os lados' />
-                    <OptionsRow title = 'Corrimão 01 lado mezanino com até 20 pessoas' color = {OptionsOffsetColor} />
-                    <OptionsRow title = 'Material escada incombustível' />
+                    <OptionsRow title = 'Estão desobstruídas destrancadas' color = {OptionsOffsetColor} parentOption = {ChangeDestrancadas}/>
+                    <OptionsRow title = 'Corrimão em ambos os lados' parentOption = {ChangeCorrimaoAmbosOsLados}/>
+                    <OptionsRow title = 'Corrimão 01 lado mezanino com até 20 pessoas' color = {OptionsOffsetColor} parentOption = {ChangeCorrimaoMezanino}/>
+                    <OptionsRow title = 'Material escada incombustível' parentOption = {ChangeMaterialEscada}/>
 
-                    <OptionsRow title = 'Barras antipânico em todas as saídas' color = {OptionsOffsetColor} />
-                    <OptionsRow title = 'Outros itens observados' />
+                    <OptionsRow title = 'Barras antipânico em todas as saídas' color = {OptionsOffsetColor} parentOption = {ChangeBarrasAntipanico} />
+                    <OptionsRow title = 'Outros itens observados' parentOption = {ChangeOutrosItensObservados1}/>
 
                 </Table>
             </View>

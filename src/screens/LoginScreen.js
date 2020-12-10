@@ -27,14 +27,14 @@ export default function LoginScreen({navigation}) {
         </TouchableOpacity>
     )
 
-    const Loggin = async () => (
+    const Login = async () => (
     
-        
         await axios.post('http://localhost:3000/auth/authenticate', {
             'email' : login,
             'password' : password 
-        }).then(function (response) {
+        }).then(function acknowledge(response) {
             console.log(response);
+            navigation.push('MainMenu')
           })
           .catch(function (error) {
             console.log(error);
@@ -83,7 +83,8 @@ export default function LoginScreen({navigation}) {
                     <Text style={ styles.CheckBoxLabel }>Lembrar Registros de Login</Text>
                 </View>
 
-                <LoginButton title="Entrar" onPress={() => Loggin()} />
+                <LoginButton title="Entrar" onPress={() => Login()} />
+                
                 <LoginButton 
                     title="Acessar sem login"
                     onPress={() => navigation.push('MainMenu')}
