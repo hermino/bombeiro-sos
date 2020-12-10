@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 
-require('./app/controller/index.controller')(app)
+require('../app/controller/index.controller')(app)
 
 dotenv.config()
 app.listen(process.env.PORT)

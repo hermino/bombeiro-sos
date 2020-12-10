@@ -9,13 +9,13 @@ const User = require('../models/user.model')
 
 const router = express.Router()
 
-dotenv.config()
-
 function generateToken(params = {}){
   return jwt.sign(params,process.env.AUTH_CONFIG_SECRET,{
     expiresIn: 86400,
   })
 }
+
+dotenv.config()
 
 router.get('/', async (req,res)=>{
   console.log('teste')
@@ -23,11 +23,12 @@ router.get('/', async (req,res)=>{
 
 router.post('/authenticate',async (req,res)=>{
   const {email, password } = req.body
+  console.log(req.body)
 
   const user = await User.findOne({email}).select('+password')
 
   if(!user){
-    return res.status(400).send({ error: 'Usuário não existe'})
+    return res.status(400).send({error: 'Usuário não existe'})
   }
 
   if (!await bcrypt.compare(password,user.password)){

@@ -254,4 +254,4 @@ router.get("/download", (req, res) => {
   })
 })
 
-module.exports = (app) => app.use('/relatorio-visita-admin', router)
+module.exports = (app) => app.use('/relatorio_visita_admin', router)

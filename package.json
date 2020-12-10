@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "dev": "nodemon src/services/server.service.js",
+    "start": "node src/services/server.service.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
