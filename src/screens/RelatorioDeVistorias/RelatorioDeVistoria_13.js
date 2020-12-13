@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
@@ -14,7 +14,7 @@ import OptionsRow from '../../components/OptionsRow'
 
 export default function RelatorioDeVistoria_12({navigation}) {
     
-
+    const [observações, changeObservações] = useState('')
 
     return (
         <ScrollView style={styles.Page}>
@@ -40,7 +40,7 @@ export default function RelatorioDeVistoria_12({navigation}) {
             <View style={styles.ContentStyle}>
             
                 <View style={styles.container}>
-                    <TextInput multiline={true} style={styles.textInputStyle} />
+                    <TextInput multiline={true} style={styles.textInputStyle} value={observações} onChange = {() => changeObservações(value)} />
                 </View>
 
                 <View style={styles.BottomMenuStyle}>

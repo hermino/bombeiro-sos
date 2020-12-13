@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
@@ -14,7 +14,10 @@ import OptionsRow from '../../components/OptionsRow'
 
 export default function RelatorioDeVistoria_12({navigation}) {
     
-
+    const [retirarDoInteriorDaEdificação, changeRetirarDoInteriorDaEdificação] = useState(false)
+    const [utilizaCentralDaGLP, changeUtilizaCentralDaGLP] = useState(false)
+    const [distanciasDeSegurançaAtendem, changeDistanciasDeSegurançaAtendem] = useState(false)
+    const [outrosItensObservados8, ChangeOutrosItensObservados8] = useState(false)
 
     return (
         <ScrollView style={styles.Page}>

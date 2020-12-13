@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
@@ -14,6 +14,9 @@ import OptionsRow from '../../components/OptionsRow'
 
 export default function RelatorioDeVistoria_08({navigation}) {
     
+    const [areaDeAção81m, changeAreaDeAção81m] = useState(false)
+    const [raioDeAção6, changeRaioDeAção6] = useState(false)
+
     return (
         <ScrollView style={styles.Header}>
             <View style={styles.Header}>

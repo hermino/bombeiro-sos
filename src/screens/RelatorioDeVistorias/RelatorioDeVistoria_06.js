@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
@@ -13,7 +13,16 @@ import { Table, TableWrapper, Col, Cols, Cell, Row, Rows } from 'react-native-ta
 import OptionsRow from '../../components/OptionsRow'
 
 export default function RelatorioDeVistoria_06({navigation}) {
-    
+
+    const [quantidadeAtende, changeQuantidadeAtende] = useState(false)
+    const [instalação, changeInstalação] = useState(false)
+    const [sinalização, changeSinalização] = useState(false)
+    const [desobstruídos, changeDesobstruídos] = useState(false)
+    const [pressaoNormal, changePressaoNormal] = useState(false)
+    const [seloImetroRecarga, changeSeloImetroRecarga] = useState(false)
+    const [seloImetroNovo, changeSeloImetroNovo] = useState(false)
+    const [outrosItensObservados5, ChangeOutrosItensObservados5] = useState(false)
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
@@ -14,6 +14,23 @@ import OptionsRow from '../../components/OptionsRow'
 
 export default function RelatorioDeVistoria_05({navigation}) {
     
+    const [hidranteA5mDaSaida, ChangeHidranteA5mDaSaida] = useState(false)
+    const [abrigosDesobstruidos, ChangeAbrigosDesobstruidos] = useState(false)
+    const [coberturaEmTodaArea, ChangeCoberturaEmTodaArea] = useState(false)
+    const [funcionamentoBombaAutomatico, ChangeFuncionamentoBombaAutomatico] = useState(false)
+    const [botoeirasEmTodosAbrigos, ChangeBotoeirasEmTodosAbrigos] = useState(false)
+    const [pressurizaçãoPorBomba, ChangePressurizaçãoPorBomba] = useState(false)
+
+    const [ligaçãoIndependente, ChangeLigaçãoIndependente] = useState(false)
+    const [delisgamentoBombaManual, ChangeDelisgamentoBombaManual] = useState(false)
+    const [abrigosComTodosEquipamentos, ChangeAbrigosComTodosEquipamentos] = useState(false)
+    const [tubulaçãoAparenteDeFerro, ChangeTubulaçãoAparenteDeFerro] = useState(false)
+
+    const [RTIIndependente, ChangeRTIIndependente] = useState(false)
+    const [saidaDeConsumoDeAguaPredial, ChangeSaidaDeConsumoDeAguaPredial] = useState(false)
+    const [pressurizaçãoPorGravidade, ChangePressurizaçãoPorGravidade] = useState(false)
+    const [outrosItensObservados4, ChangeOutrosItensObservados4] = useState(false)
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -41,7 +58,7 @@ export default function RelatorioDeVistoria_05({navigation}) {
                     <Row data = {['Medidas', 'SIM', 'NÃO']} flexArr={[4,1,1]} style={{height: 40}} textStyle={styles.textTitle} />
 
                     <OptionsRow title = '01 hidrante a no máximo 5m da saída' color = {OptionsOffsetColor} />
-                    <OptionsRow title = 'Abrigos desobstrídos' />
+                    <OptionsRow title = 'Abrigos desobstruídos' />
                     <OptionsRow title = 'Cobertura em toda a área da edificação' color = {OptionsOffsetColor} />
                     <OptionsRow title = 'Funcionamento da bomba automático' />
 

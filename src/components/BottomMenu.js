@@ -2,8 +2,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
+import axios from 'axios'
+
 // create a component
-const BottomMenu = ({navigation, rootPage, backwards, forwards}) => {
+const BottomMenu = ({field, navigation, rootPage, backwards, forwards}) => {
     
     const ImageButton = ({onPress, source}) => (
         <TouchableOpacity 
@@ -14,12 +16,17 @@ const BottomMenu = ({navigation, rootPage, backwards, forwards}) => {
         </TouchableOpacity>
     )
 
+    const sendData = async () => {
+        //checar se existe, faz umas especie de fetch
+        await axios.post('https://app-cmbrr.herokuapp.com/', field)
+    }
+
     return (
             <View style={styles.BottomMenu}>
                 <ImageButton 
                     style = {styles.ImageButton}
                     source = {require('../assets/ArrowBackwards.png')}
-                    onPress={() => {navigation.navigate( rootPage , { screen: backwards } )}} />
+                    onPress={() => {  navigation.navigate( rootPage , { screen: backwards } )}} />
 
                 <ImageButton 
                     style = {styles.ImageButton}

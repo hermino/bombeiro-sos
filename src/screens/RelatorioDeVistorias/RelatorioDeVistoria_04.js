@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
@@ -14,6 +14,13 @@ import OptionsRow from '../../components/OptionsRow'
 
 export default function RelatorioDeVistoria_04({navigation}) {
     
+    const [alturaInstalacaoSinalização, ChangeAlturaInstalacaoSinalização] = useState(false)
+    const [tamanhoSinalização, ChangeTamanhoSinalização] = useState(false)
+    const [coresCorrespondentes, ChangeCoresCorrespondentes] = useState(false)
+    const [formaGeometrica, ChangeFormaGeometrica] = useState(false)
+    const [distanciaMaximaVisualização, ChangeDistanciaMaximaVisualização] = useState(false)
+    const [outrosItensObservados3, ChangeOutrosItensObservados3] = useState(false)
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>

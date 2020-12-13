@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import '../../assets/Colors'
 import { PrimaryTextColor, SecondaryTextColor, WarningColor, YesColor, OptionsOffsetColor } from '../../assets/Colors';
@@ -13,6 +13,11 @@ import OptionsRow from '../../components/OptionsRow'
 
 export default function RelatorioDeVistoria_10({navigation}) {
     
+    const [acionamentoDeBombaAutomatico, changeAcionamentoDeBombaAutomatico] = useState(false)
+    const [caminhamentoDe30mParaBotoeira, changeCaminhamentoDe30mParaBotoeira] = useState(false)
+    const [saidaTesteDoSistema, changeSaidaTesteDoSistema] = useState(false)
+    const [outrosItensObservados6, ChangeOutrosItensObservados6] = useState(false)
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>

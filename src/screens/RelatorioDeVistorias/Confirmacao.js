@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image, Alert } from 'react-native';
 import { ButtonRed, PrimaryTextColor, SecondaryTextColor, WarningColor, MaisDetalhesColor } from '../../assets/Colors';
 import CheckBox from '@react-native-community/checkbox'
 
+import RelatorioContext from '../../navigations/RelatorioContext'
+
 export default function Confirmacao(){
     
     TouchableOpacity.defaultProps = { activeOpacity: 0.6 };
+
+    // POST ACONTECE AQUI
+    // TEM QUE PEGAR TODAS AS VARIÁVEIS ALTERADAS
+
+    
 
     const PreVis = ({onPress, title}) => (
         <View style={styles.PreVisView}>
@@ -85,14 +92,8 @@ export default function Confirmacao(){
         </View>
     )
 
-    const SalvarEnviarButtons = ({}) => (
-        <View style={styles.SalvarEnviarButtonsStyle}>
-            <SendButton title="Enviar"/>
-            <SaveButton title="Salvar"/>
-        </View>
-    )
-
     return(
+        
         <View style={styles.ConfirmacaoScreen}>
             <PreVis title = "Visualização prévia" />
             <Intructions text = 'Marcar os campos ao concordar com as declarações apresentadas na vista prévia'/>
@@ -102,7 +103,10 @@ export default function Confirmacao(){
             <MaisDetalhes text = 'Mais detalhes'/>
             <InputTextField title='Local ' placeholder = 'local' />
             <InputTextField title='Data ' placeholder = 'data' />
-            <SalvarEnviarButtons />
+            <View style={styles.SalvarEnviarButtonsStyle}>
+                <SendButton title="Enviar" onPress={ () => {console.log('Clicou') } }/>
+                <SaveButton title="Salvar"/>
+            </View>
         </View>
     )
    

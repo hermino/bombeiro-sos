@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useContext } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { color } from 'react-native-reanimated';
 import '../../assets/Colors'
@@ -12,6 +12,8 @@ import BottomMenu from '../../components/BottomMenu'
 import { Table, TableWrapper, Col, Cols, Cell, Row, Rows } from 'react-native-table-component';
 import OptionsRow from '../../components/OptionsRow'
 
+import RelatorioContext from '../../navigations/RelatorioContext'
+
 export default function RelatorioDeVistoria_02({navigation}) {
     
     const [larguraPorta, ChangeLarguraPorta] = useState(false)
@@ -24,6 +26,26 @@ export default function RelatorioDeVistoria_02({navigation}) {
     const [materialEscada, ChangeMaterialEscada] = useState(false)
     const [barrasAntipanico, ChangeBarrasAntipanico] = useState(false)
     const [outrosItensObservados1, ChangeOutrosItensObservados1] = useState(false)
+
+    const info = {
+        "larguraPorta" : larguraPorta,
+        "larguraEscada": larguraEscada,
+        "pisoAntiderrapante": pisoAntiderrapante,
+        "guardaCorpoAltura": guardaCorpoAltura,
+        "detrancadas" : detrancadas,
+        "corrimaoAmbosOsLados": corrimaoAmbosOsLados,
+        "corrimaoMezanino": corrimaoMezanino,
+        "materialEscada": materialEscada,
+        "barrasAntipanico": barrasAntipanico,
+        "outrosItensObservados1": outrosItensObservados1,
+        "alturaInstalacao": null,
+        "distanciaEntreLuminarias": null,
+        "edificacaoSuperior": null,
+        "corredoresInternosMoteis": null,
+        "testeDeFuncionamento": null,
+        "edificacaoComLotacaoSuperior": null,
+        "outrosItensObservados2": null,
+    }
 
     return (
         <ScrollView style={styles.Page}>
@@ -51,8 +73,8 @@ export default function RelatorioDeVistoria_02({navigation}) {
                     <Row data = {['Não Consta', 'imagem']} flexArr={[2,1]} style={{height: 40, borderWidth:0}} textStyle={styles.textTitle} />
                     <Row data = {['Medidas', 'SIM', 'NÃO']} flexArr={[4,1,1]} style={{height: 40}} textStyle={styles.textTitle} />
 
-                    <OptionsRow title = 'Largura das portas (saídas)' color = {OptionsOffsetColor} parentOption = {ChangeLarguraPorta}  />
-                    <OptionsRow title = 'Largura das escadas' parentOption = {ChangeLarguraEscada}/>
+                    <OptionsRow title = 'Largura das portas (saídas)' color = {OptionsOffsetColor} parentOption = {ChangeLarguraPorta} />
+                    <OptionsRow title = 'Largura das escadas' parentOption = {ChangeLarguraEscada} field = {"larguraEscada"}/>
                     <OptionsRow title = 'Piso antiderrapante' color = {OptionsOffsetColor} parentOption = {ChangePisoAntiderrapante}/>
                     <OptionsRow title = 'Guarda corpo altura e longarinas 15 cm de espaçamento' parentOption = {ChangeGuardaCorpoAltura}/>
 
@@ -67,7 +89,7 @@ export default function RelatorioDeVistoria_02({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_01" forwards = "RelatorioDeVistoria_03" />
+            <BottomMenu field = {info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_01" forwards = "RelatorioDeVistoria_03" />
 
         </ScrollView>
     );
