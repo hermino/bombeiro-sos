@@ -9,23 +9,23 @@ module.exports = (req,res,next)=>{
   const authHeader = req.headers.authorization
 
   if(!authHeader){
-    return res.status(401).send({error:'Token não foi informado'})
+    return res.status(400).send({error:'Token não foi informado'})
   }
 
   const parts = authHeader.split(' ')
 
   if(!parts.length === 2){
-    return res.status(401).send({error:' Token error'})
+    return res.status(402).send({error:' Token error'})
   }
 
   const [ scheme, token ] = parts;
 
   if(!/^Bearer$/i.test(scheme)){
-    return res.status(401).send({error:'Token mal formado'})
+    return res.status(403).send({error:'Token mal formado'})
   }
 
   jwt.verify(token, process.env.AUTH_CONFIG_SECRET,  async (err,decoded)=>{
-    if (err) return res.status(401).send({error:'Token invalida'})
+    if (err) return res.status(404).send({error:'Token invalida'})
     
     const user = await User.findById(decoded.id);
 
@@ -33,7 +33,7 @@ module.exports = (req,res,next)=>{
       req.userId = decoded.id ;
       return next();
     } else{
-      return res.status(401).send({error:'Você ainda não tem acesso as Informações, Consulta seu Administrador'});
+      return res.status(405).send({error:'Você ainda não tem acesso as Informações, Consulta seu Administrador'});
     }
 
   });

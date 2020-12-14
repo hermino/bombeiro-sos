@@ -17,7 +17,7 @@ module.exports = {
       "ID relatorio": data._id,
       "Área Identificada": data.area_edificada,
       "Proprietário": data.proprietario,
-      "Bombeiro": data.user.last_name,
+      "Bombeiro": {"Nome": data.user.name, "Sobrenome": data.user.last_name},
       "Status": data.status
     }
     return Data
