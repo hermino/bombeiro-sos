@@ -31,6 +31,23 @@ export default function RelatorioDeVistoria_05({navigation}) {
     const [pressurizaçãoPorGravidade, ChangePressurizaçãoPorGravidade] = useState(false)
     const [outrosItensObservados4, ChangeOutrosItensObservados4] = useState(false)
 
+    const info = {
+        "hidranteA5mDaSaida": hidranteA5mDaSaida,
+        "abrigosDesobstruidos": abrigosDesobstruidos,
+        "coberturaEmTodaArea": coberturaEmTodaArea,
+        "funcionamentoBombaAutomatico": funcionamentoBombaAutomatico,
+        "botoeirasEmTodosAbrigos": botoeirasEmTodosAbrigos,
+        "pressurizaçãoPorBomba": pressurizaçãoPorBomba,
+        "ligaçãoIndependente": ligaçãoIndependente,
+        "delisgamentoBombaManual": delisgamentoBombaManual,
+        "abrigosComTodosEquipamentos": abrigosComTodosEquipamentos,
+        "tubulaçãoAparenteDeFerro": tubulaçãoAparenteDeFerro,
+        "RTIIndependente": RTIIndependente,
+        "saidaDeConsumoDeAguaPredial": saidaDeConsumoDeAguaPredial,
+        "pressurizaçãoPorGravidade": pressurizaçãoPorGravidade,
+        "outrosItensObservados4": outrosItensObservados4,
+    }
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -78,7 +95,7 @@ export default function RelatorioDeVistoria_05({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_04" forwards = "RelatorioDeVistoria_06" />
+            <BottomMenu field = {info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_04" forwards = "RelatorioDeVistoria_06" />
 
         </ScrollView>
     );

@@ -17,6 +17,11 @@ export default function RelatorioDeVistoria_08({navigation}) {
     const [areaDeAção81m, changeAreaDeAção81m] = useState(false)
     const [raioDeAção6, changeRaioDeAção6] = useState(false)
 
+    const info = {
+        "areaDeAção81m" : areaDeAção81m,
+        "raioDeAção6" : raioDeAção6,
+    }
+
     return (
         <ScrollView style={styles.Header}>
             <View style={styles.Header}>
@@ -49,7 +54,7 @@ export default function RelatorioDeVistoria_08({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_07" forwards = "RelatorioDeVistoria_09" />
+            <BottomMenu field={info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_07" forwards = "RelatorioDeVistoria_09" />
 
         </ScrollView>
     );

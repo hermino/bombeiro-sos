@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 import { PrimaryTextColor, SecondaryTextColor, YesColor } from '../assets/Colors'
 
-// create a component
-const TextField = ({text}) => (
+
+const TextField = ({text, value, handler}) => (
     <View style={styles.TextFieldStyle}>
         <Text style={styles.TitleTextInput}>{text}</Text>
-        <TextInput style={styles.TextInput} />
+        <TextInput style={styles.TextInput} value={value} onChange={event => handler(event.target.value)} />
     </View>
 )
 

@@ -1,28 +1,39 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { PrimaryTextColor, SecondaryTextColor, YesColor } from '../assets/Colors'
 import CheckBox from '@react-native-community/checkbox'
 
 // create a component
-const CheckBoxFieldInd = ({text, op1, op2}) => {
+const CheckBoxFieldInd = ({text, op1, op2, value, handler}) => {
 
-    const CheckBoxField = ({name}) => (
-        <View style={styles.CheckBoxFieldStyle} >
-            <CheckBox
-                    tintColors={{true: PrimaryTextColor}}
-                    disabled={false}
-                    />
-            <Text style={ styles.CheckboxTextOpt }>{name}</Text>
-        </View>
-    )
+    const [op1CheckboxStatus, changeOp1CheckboxStatus] = useState(false)
+    const [op2CheckboxStatus, changeOp2CheckboxStatus] = useState(false)
 
     return (
         <View style={styles.CheckBoxFieldIndStyle }>
             <Text style={styles.CheckboxTextInput}>{text}</Text>
             <View style={ styles.CheckboxesStyles }>
-                <CheckBoxField name = {op1}/>
-                <CheckBoxField name = {op2}/>
+                <View style={styles.CheckBoxFieldStyle} >
+                    <CheckBox
+                            tintColors={{true: PrimaryTextColor}}
+                            disabled={false}
+                            value={op1CheckboxStatus}
+                            onValueChange={(newValue) => {changeOp1CheckboxStatus(newValue), changeOp2CheckboxStatus(!newValue), handler(newValue) } }
+                           
+                            />
+                    <Text style={ styles.CheckboxTextOpt }>{op1}</Text>
+                </View>
+                <View style={styles.CheckBoxFieldStyle} >
+                    <CheckBox
+                            tintColors={{true: PrimaryTextColor}}
+                            disabled={false}
+                            value={op2CheckboxStatus}
+                            onValueChange={(newValue) => {changeOp2CheckboxStatus(newValue), changeOp1CheckboxStatus(!newValue), handler(!newValue) } }
+                            
+                            />
+                    <Text style={ styles.CheckboxTextOpt }>{op2}</Text>
+                </View>
             </View>
         </View>
     );

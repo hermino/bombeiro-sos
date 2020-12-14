@@ -68,7 +68,7 @@ export default function RelatorioDeVistoria_03({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_02" forwards = "RelatorioDeVistoria_04" />
+            <BottomMenu field={info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_02" forwards = "RelatorioDeVistoria_04" />
 
         </ScrollView>
     );

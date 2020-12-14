@@ -21,6 +21,15 @@ export default function RelatorioDeVistoria_04({navigation}) {
     const [distanciaMaximaVisualização, ChangeDistanciaMaximaVisualização] = useState(false)
     const [outrosItensObservados3, ChangeOutrosItensObservados3] = useState(false)
 
+    const info = {
+        "alturaInstalacaoSinalização": alturaInstalacaoSinalização,
+        "tamanhoSinalização": tamanhoSinalização,
+        "coresCorrespondentes": coresCorrespondentes,
+        "formaGeometrica": formaGeometrica,
+        "distanciaMaximaVisualização": distanciaMaximaVisualização,
+        "outrosItensObservados3": outrosItensObservados3,
+    }
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -58,7 +67,7 @@ export default function RelatorioDeVistoria_04({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_03" forwards = "RelatorioDeVistoria_05" />
+            <BottomMenu field={info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_03" forwards = "RelatorioDeVistoria_05" />
 
         </ScrollView>
     );

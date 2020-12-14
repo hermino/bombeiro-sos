@@ -18,6 +18,13 @@ export default function RelatorioDeVistoria_10({navigation}) {
     const [saidaTesteDoSistema, changeSaidaTesteDoSistema] = useState(false)
     const [outrosItensObservados6, ChangeOutrosItensObservados6] = useState(false)
 
+    const info = {
+        "acionamentoDeBombaAutomatico": acionamentoDeBombaAutomatico,
+        "caminhamentoDe30mParaBotoeira": caminhamentoDe30mParaBotoeira,
+        "saidaTesteDoSistema": saidaTesteDoSistema,
+        "outrosItensObservados7": outrosItensObservados7,
+    }
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -52,7 +59,7 @@ export default function RelatorioDeVistoria_10({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_09" forwards = "RelatorioDeVistoria_11" />
+            <BottomMenu field={info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_09" forwards = "RelatorioDeVistoria_11" />
 
         </ScrollView>
     );

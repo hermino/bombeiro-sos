@@ -4,21 +4,21 @@ import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { PrimaryTextColor, SecondaryTextColor, WarningColor } from '../assets/Colors'
 
 // create a component
-const NumeroDeSalas = ({text, op1, op2, obs}) => {
+const NumeroDeSalas = ({text, op1, op2, obs, value1, handler1, value2, handler2 }) => {
     
-    const NumeroDeSalasOpt = ({text}) => (
-        <View style={styles.NumeroDeSalasOptStyle}>
-            <Text style={styles.NumeroDeSalasOptTextStyle}>{text}</Text>
-            <TextInput style={styles.TextInput} />
-        </View>
-    )
-
+    
     return (
         <View style={styles.NumeroDeSalasViewStyle }>
             <Text style = {styles.NumeroDeSalasTextStyle}>{text}</Text>
             <View style = {styles.NumeroDeSalasStyle}>
-                <NumeroDeSalasOpt text = {op1} />
-                <NumeroDeSalasOpt text = {op2} />
+                <View style={styles.NumeroDeSalasOptStyle}>
+                    <Text style={styles.NumeroDeSalasOptTextStyle}>{op1}</Text>
+                    <TextInput style={styles.TextInput} value={value1} onChange={event => handler1(event.target.value)}  />
+                </View>
+                <View style={styles.NumeroDeSalasOptStyle}>
+                    <Text style={styles.NumeroDeSalasOptTextStyle}>{op2}</Text>
+                    <TextInput style={styles.TextInput} value={value2} onChange={event => handler2(event.target.value)}  />
+                </View>
             </View>
             <Text style={ styles.obsStyle }>{obs}</Text>
         </View>

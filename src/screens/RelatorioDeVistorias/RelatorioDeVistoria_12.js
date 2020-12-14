@@ -19,6 +19,13 @@ export default function RelatorioDeVistoria_12({navigation}) {
     const [distanciasDeSegurançaAtendem, changeDistanciasDeSegurançaAtendem] = useState(false)
     const [outrosItensObservados8, ChangeOutrosItensObservados8] = useState(false)
 
+    const info = {
+        "retirarDoInteriorDaEdificação":retirarDoInteriorDaEdificação,
+        "utilizaCentralDaGLP":utilizaCentralDaGLP,
+        "distanciasDeSegurançaAtendem":distanciasDeSegurançaAtendem,
+        "outrosItensObservados9":outrosItensObservados9,
+    }
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -53,7 +60,7 @@ export default function RelatorioDeVistoria_12({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_11" forwards = "RelatorioDeVistoria_13" />
+            <BottomMenu field={info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_11" forwards = "RelatorioDeVistoria_13" />
 
         </ScrollView>
     );

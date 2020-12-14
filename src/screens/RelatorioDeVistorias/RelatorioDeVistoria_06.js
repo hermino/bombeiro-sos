@@ -23,6 +23,17 @@ export default function RelatorioDeVistoria_06({navigation}) {
     const [seloImetroNovo, changeSeloImetroNovo] = useState(false)
     const [outrosItensObservados5, ChangeOutrosItensObservados5] = useState(false)
 
+    const info = {
+        "quantidadeAtende" : quantidadeAtende,
+        "instalação" : instalação,
+        "sinalização" : sinalização,
+        "desobstruídos" : desobstruídos,
+        "pressaoNormal" : pressaoNormal,
+        "seloImetroRecarga" : seloImetroRecarga,
+        "seloImetroNovo" : seloImetroNovo,
+        "outrosItensObservados5" : outrosItensObservados5,
+    }
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -61,7 +72,7 @@ export default function RelatorioDeVistoria_06({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_05" forwards = "RelatorioDeVistoria_07" />
+            <BottomMenu field={info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_05" forwards = "RelatorioDeVistoria_07" />
 
         </ScrollView>
     );

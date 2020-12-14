@@ -16,6 +16,10 @@ export default function RelatorioDeVistoria_12({navigation}) {
     
     const [observações, changeObservações] = useState('')
 
+    const info = {
+        "observações": observações
+    }
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -44,7 +48,7 @@ export default function RelatorioDeVistoria_12({navigation}) {
                 </View>
 
                 <View style={styles.BottomMenuStyle}>
-                    <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_12" forwards = "Confirmacao" />
+                    <BottomMenu field = {info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_12" forwards = "Confirmacao" />
                 </View>
 
             </View>

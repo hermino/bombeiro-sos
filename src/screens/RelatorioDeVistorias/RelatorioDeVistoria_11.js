@@ -22,6 +22,16 @@ export default function RelatorioDeVistoria_11({navigation}) {
     const [caminhamentoDe30mParaBotoeira, changeCaminhamentoDe30mParaBotoeira] = useState(false)
     const [outrosItensObservados7, ChangeOutrosItensObservados7] = useState(false)
 
+    const info = {
+        "quantidadeDeAcordoComMemorial": quantidadeDeAcordoComMemorial,
+        "treinamentoRealizadoComProfissional": treinamentoRealizadoComProfissional,
+        "calculoPresenteNoProjeto": calculoPresenteNoProjeto,
+        "apresentarFAT": apresentarFAT,
+        "brigadaAprovadaNoTeste": brigadaAprovadaNoTeste,
+        "caminhamentoDe30mParaBotoeira": caminhamentoDe30mParaBotoeira,
+        "outrosItensObservados8": outrosItensObservados8,
+    }
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -58,7 +68,7 @@ export default function RelatorioDeVistoria_11({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_10" forwards = "RelatorioDeVistoria_12" />
+            <BottomMenu field={info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_10" forwards = "RelatorioDeVistoria_12" />
 
         </ScrollView>
     );

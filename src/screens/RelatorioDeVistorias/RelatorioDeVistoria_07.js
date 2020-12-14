@@ -19,6 +19,13 @@ export default function RelatorioDeVistoria_07({navigation}) {
     const [audivelEmTodaEdificação, changeAudivelEmTodaEdificação] = useState(false)
     const [outrosItensObservados6, ChangeOutrosItensObservados6] = useState(false)
 
+    const info = {
+        "centralDeAlarmeEmLocal":centralDeAlarmeEmLocal,
+        "caminhamentoDe30mParaBotoeira":caminhamentoDe30mParaBotoeira,
+        "audivelEmTodaEdificação":audivelEmTodaEdificação,
+        "outrosItensObservados6":outrosItensObservados6,
+    }
+
     return (
         <ScrollView style={styles.Page}>
             <View style={styles.Header}>
@@ -53,7 +60,7 @@ export default function RelatorioDeVistoria_07({navigation}) {
                 </Table>
             </View>
 
-            <BottomMenu navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_06" forwards = "RelatorioDeVistoria_08" />
+            <BottomMenu field={info} navigation = {navigation} rootPage = "Forms" backwards = "RelatorioDeVistoria_06" forwards = "RelatorioDeVistoria_08" />
 
         </ScrollView>
     );
